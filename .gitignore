@@ -20,3 +20,6 @@ venv.bak/
 .DS_Store
 .vscode/
 .idea/
+
+# Backups
+backups/
