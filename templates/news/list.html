@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Company News" %} | ALHILAL ALDAWLY{% endblock %}
+
+{% block content %}
+<section class="page-header bg-black py-5 animate-on-scroll">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold text-dark text-gradient text-uppercase mt-5">{% trans "Latest News" %}</h1>
+    </div>
+</section>
+
+<section class="py-5 bg-black animate-on-scroll">
+    <div class="container py-4">
+        <div class="row g-4">
+            {% for article in articles %}
+            <div class="col-md-4 col-sm-6">
+                <div class="news-card glass-premium overflow-hidden hover-lift h-100 shadow-sm border-0 p-0 text-start">
+                    <div class="position-relative overflow-hidden image-zoom-container" style="height: 240px;">
+                        <img src="{{ article.featured_image.url }}" class="w-100 h-100 object-fit-cover transition-img" alt="{{ article.title_ar }}">
+                    </div>
+                    <div class="p-4 d-flex flex-column">
+                        <small class="text-primary mb-2 fw-bold text-uppercase"><i class="bi bi-calendar3 me-2"></i>{{ article.published_at|date:"d M, Y" }}</small>
+                        <h3 class="h4 fw-bold text-dark mb-3">{% if LANGUAGE_CODE == 'ar' %}{{ article.title_ar }}{% else %}{{ article.title_en }}{% endif %}</h3>
+                        <a href="{% url 'news:detail' article.slug %}" class="btn btn-outline-primary fw-bold mt-auto btn-sm align-self-start hover-lift">{% trans "Read More" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <p class="text-dark fs-4">{% trans "No news articles found." %}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

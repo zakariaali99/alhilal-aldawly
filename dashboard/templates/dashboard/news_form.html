@@ -1,0 +1,83 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}
+{% if object %}
+{% trans "تعديل المقال:" %} {{ object.title_ar }}
+{% else %}
+{% trans "إضافة مقال جديد" %}
+{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<a href="{% url 'dashboard:news_list' %}">{% trans "الأخبار" %}</a>
+<span> / </span>
+<span>{% if object %}{% trans "تعديل" %}{% else %}{% trans "إضافة" %}{% endif %}</span>
+{% endblock %}
+
+{% block extra_css %}
+{{ form.media }}
+<style>
+    .django-ckeditor-widget {
+        width: 100% !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="form-card" style="max-width: 1000px;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label>{{ form.title_ar.label }}</label>
+                {{ form.title_ar }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.title_en.label }}</label>
+                {{ form.title_en }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.slug.label }}</label>
+                {{ form.slug }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.featured_image.label }}</label>
+                {{ form.featured_image }}
+                {% if object and object.featured_image %}
+                <img src="{{ object.featured_image.url }}" style="height: 100px; margin-top: 10px; border-radius: 4px;">
+                {% endif %}
+            </div>
+
+            <div class="form-group full-width">
+                <label>{{ form.content_ar.label }}</label>
+                {{ form.content_ar }}
+            </div>
+
+            <div class="form-group full-width">
+                <label>{{ form.content_en.label }}</label>
+                {{ form.content_en }}
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-group">
+                    {{ form.is_published }}
+                    <span>{{ form.is_published.label }}</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn primary">
+                <i class="fas fa-save"></i> {% trans "نشر المقال" %}
+            </button>
+            <a href="{% url 'dashboard:news_list' %}" class="btn btn-outline">{% trans "إلغاء" %}</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

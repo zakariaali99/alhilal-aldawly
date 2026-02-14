@@ -1,0 +1,71 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "إدارة المعرض" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<a href="{% url 'dashboard:livestock_list' %}">{% trans "المواشي" %}</a>
+<span> / </span>
+<span>{{ livestock_item.title_ar }}</span>
+<span> / </span>
+<span>{% trans "المعرض" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{% trans "معرض الصور والفيديوهات" %} - {{ livestock_item.title_ar }}</h2>
+        <a href="{% url 'dashboard:gallery_create' livestock_item.id %}" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i> {% trans "إضافة مادة" %}
+        </a>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "المادة" %}</th>
+                    <th>{% trans "النوع" %}</th>
+                    <th>{% trans "الترتيب" %}</th>
+                    <th>{% trans "الإجراءات" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in gallery_items %}
+                <tr>
+                    <td>
+                        {% if item.media_type == 'image' %}
+                        <img src="{{ item.file.url }}" style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px;">
+                        {% else %}
+                        <div style="width: 80px; height: 60px; background: #000; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        {% endif %}
+                    </td>
+                    <td>{{ item.get_media_type_display }}</td>
+                    <td>{{ item.order }}</td>
+                    <td class="actions">
+                        <a href="{% url 'dashboard:gallery_delete' item.id %}" class="text-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 2rem;">{% trans "لا توجد مواد في معرض هذه الماشية" %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .actions {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.1rem;
+    }
+    .text-danger {
+        color: var(--dash-danger);
+    }
+</style>
+{% endblock %}

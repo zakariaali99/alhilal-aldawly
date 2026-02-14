@@ -1,0 +1,475 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-25 01:29+0200\n"
+"PO-Revision-Date: 2026-01-24 06:58+0200\n"
+"Last-Translator: AI Assistant\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: alhilal_project/settings.py:131
+msgid "Arabic"
+msgstr "العربية"
+
+#: core/admin.py:5
+msgid "لوحة تحكم الهلال الدولي"
+msgstr ""
+
+#: core/admin.py:6
+msgid "الهلال الدولي"
+msgstr ""
+
+#: core/admin.py:7
+msgid "إدارة الموقع"
+msgstr ""
+
+#: core/models.py:5
+msgid "Logo"
+msgstr "الشعار"
+
+#: core/models.py:6
+msgid "Favicon"
+msgstr "أيقونة الموقع"
+
+#: core/models.py:7 core/models.py:45 templates/contact.html:47
+msgid "Phone"
+msgstr "رقم الهاتف"
+
+#: core/models.py:8 core/models.py:44 news/models.py:25
+#: templates/contact.html:55 templates/news/detail.html:47
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: core/models.py:9
+msgid "Address (Ar)"
+msgstr "العنوان (بالعربي)"
+
+#: core/models.py:10
+msgid "Address (En)"
+msgstr "العنوان (بالإنجليزي)"
+
+#: core/models.py:11
+msgid "Facebook"
+msgstr "فيسبوك"
+
+#: core/models.py:12
+msgid "Twitter"
+msgstr "تويتر"
+
+#: core/models.py:13
+msgid "Instagram"
+msgstr "إنستغرام"
+
+#: core/models.py:16 core/models.py:17 core/models.py:20
+msgid "Site Settings"
+msgstr "إعدادات الموقع"
+
+#: core/models.py:23 livestock/models.py:24 news/models.py:6
+msgid "Title (Ar)"
+msgstr "العنوان (بالعربي)"
+
+#: core/models.py:24 livestock/models.py:25 news/models.py:7
+msgid "Title (En)"
+msgstr "العنوان (بالإنجليزي)"
+
+#: core/models.py:25
+msgid "Subtitle (Ar)"
+msgstr "العنوان الفرعي (بالعربي)"
+
+#: core/models.py:26
+msgid "Subtitle (En)"
+msgstr "العنوان الفرعي (بالإنجليزي)"
+
+#: core/models.py:27
+msgid "Background Image"
+msgstr "صورة الخلفية"
+
+#: core/models.py:28
+msgid "CTA Text (Ar)"
+msgstr "نص الزر (بالعربي)"
+
+#: core/models.py:29
+msgid "CTA Text (En)"
+msgstr "نص الزر (بالإنجليزي)"
+
+#: core/models.py:30
+msgid "CTA Link"
+msgstr "رابط الزر"
+
+#: core/models.py:31
+msgid "Is Active"
+msgstr "نشط"
+
+#: core/models.py:32 livestock/models.py:12 livestock/models.py:51
+msgid "Order"
+msgstr "الترتيب"
+
+#: core/models.py:35
+msgid "Hero Section"
+msgstr "قسم العرض الرئيسي"
+
+#: core/models.py:36
+msgid "Hero Sections"
+msgstr "أقسام العرض الرئيسي"
+
+#: core/models.py:43 news/models.py:24 templates/news/detail.html:46
+msgid "Name"
+msgstr "الاسم"
+
+#: core/models.py:46 templates/contact.html:26
+msgid "Subject"
+msgstr "الموضوع"
+
+#: core/models.py:47 templates/contact.html:29
+msgid "Message"
+msgstr "الرسالة"
+
+#: core/models.py:48 livestock/models.py:31 news/models.py:26 news/models.py:39
+msgid "Created At"
+msgstr "تاريخ الإنشاء"
+
+#: core/models.py:49
+msgid "Is Read"
+msgstr "تمت القراءة"
+
+#: core/models.py:52
+msgid "Contact Message"
+msgstr "رسالة اتصال"
+
+#: core/models.py:53
+msgid "Contact Messages"
+msgstr "رسائل الاتصال"
+
+#: livestock/models.py:6
+msgid "Name (Ar)"
+msgstr "الاسم (بالعربي)"
+
+#: livestock/models.py:7
+msgid "Name (En)"
+msgstr "الاسم (بالإنجليزي)"
+
+#: livestock/models.py:8 livestock/models.py:26 news/models.py:8
+msgid "Slug"
+msgstr "الرابط الفرعي (Slug)"
+
+#: livestock/models.py:9 livestock/models.py:27
+msgid "Description (Ar)"
+msgstr "الوصف (بالعربي)"
+
+#: livestock/models.py:10 livestock/models.py:28
+msgid "Description (En)"
+msgstr "الوصف (بالإنجليزي)"
+
+#: livestock/models.py:11
+msgid "Icon"
+msgstr "أيقونة"
+
+#: livestock/models.py:15 livestock/models.py:23
+msgid "Category"
+msgstr "الفئة"
+
+#: livestock/models.py:16
+msgid "Categories"
+msgstr "الفئات"
+
+#: livestock/models.py:29 news/models.py:11
+msgid "Featured Image"
+msgstr "الصورة البارزة"
+
+#: livestock/models.py:30
+msgid "Is Featured"
+msgstr "مميز (حالة بارزة)"
+
+#: livestock/models.py:34 livestock/models.py:46
+msgid "Livestock Item"
+msgstr "مادة مواشي"
+
+#: livestock/models.py:35
+msgid "Livestock Items"
+msgstr "مواد المواشي"
+
+#: livestock/models.py:43
+msgid "Image"
+msgstr "صورة"
+
+#: livestock/models.py:44
+msgid "Video"
+msgstr "فيديو"
+
+#: livestock/models.py:47
+msgid "Media Type"
+msgstr "نوع الوسائط"
+
+#: livestock/models.py:48
+msgid "File"
+msgstr "الملف"
+
+#: livestock/models.py:49
+msgid "Caption (Ar)"
+msgstr "تسمية وسائط (بالعربي)"
+
+#: livestock/models.py:50
+msgid "Caption (En)"
+msgstr "تسمية وسائط (بالإنجليزي)"
+
+#: livestock/models.py:54
+msgid "Gallery Item"
+msgstr "عنصر معرض"
+
+#: livestock/models.py:55
+msgid "Gallery Items"
+msgstr "عناصر المعرض"
+
+#: news/models.py:9
+msgid "Content (Ar)"
+msgstr "المحتوى (بالعربي)"
+
+#: news/models.py:10
+msgid "Content (En)"
+msgstr "المحتوى (بالإنجليزي)"
+
+#: news/models.py:12
+msgid "Published At"
+msgstr "تاريخ النشر"
+
+#: news/models.py:13
+msgid "Is Published"
+msgstr "منشور"
+
+#: news/models.py:16 news/models.py:36
+msgid "Article"
+msgstr "مقال"
+
+#: news/models.py:17
+msgid "Articles"
+msgstr "مقالات"
+
+#: news/models.py:29 news/models.py:37
+msgid "Commenter"
+msgstr "المُعلق"
+
+#: news/models.py:30
+msgid "Commenters"
+msgstr "المُعلقون"
+
+#: news/models.py:38 news/models.py:43
+msgid "Comment"
+msgstr "تعليق"
+
+#: news/models.py:40
+msgid "Is Approved"
+msgstr "تمت الموافقة"
+
+#: news/models.py:44 templates/news/detail.html:26
+msgid "Comments"
+msgstr "التعليقات"
+
+#: templates/contact.html:4 templates/include/footer.html:16
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: templates/contact.html:9
+msgid "Get in Touch"
+msgstr "تواصل معنا"
+
+#: templates/contact.html:16
+msgid "Send Us a Message"
+msgstr "أرسل لنا رسالة"
+
+#: templates/contact.html:20
+msgid "Your Name"
+msgstr "اسمك"
+
+#: templates/contact.html:23
+msgid "Email Address"
+msgstr "البريد الإلكتروني"
+
+#: templates/contact.html:31
+msgid "Send Message"
+msgstr "إرسال الرسالة"
+
+#: templates/contact.html:36
+msgid "Contact Information"
+msgstr "معلومات الاتصال"
+
+#: templates/contact.html:40
+msgid "Our Location"
+msgstr "موقعنا"
+
+#: templates/contact.html:41
+msgid "Libya - Misrata - Area Tamina"
+msgstr "ليبيا - مصراتة - منطقة طمينة"
+
+#: templates/home.html:4 templates/include/footer.html:12
+#: templates/include/navbar.html:12
+msgid "Home"
+msgstr "الرئيسية"
+
+#: templates/home.html:29
+msgid "Welcome to"
+msgstr "مرحباً بكم في"
+
+#: templates/home.html:30
+msgid "The leader in livestock and meat importation in Libya."
+msgstr "الرائد في استيراد المواشي واللحوم في ليبيا."
+
+#: templates/home.html:32
+msgid "Explore Livestock"
+msgstr "استكشف المواشي"
+
+#: templates/home.html:33
+msgid "Our Story"
+msgstr "قصتنا"
+
+#: templates/home.html:44
+msgid "Premium Quality"
+msgstr "جودة ممتازة"
+
+#: templates/home.html:45
+msgid "We select the finest livestock from the best sources worldwide."
+msgstr "نختار أفضل أنواع المواشي من أرقى المصادر العالمية."
+
+#: templates/home.html:49
+msgid "Global Network"
+msgstr "شبكة عالمية"
+
+#: templates/home.html:50
+msgid "Importing from Europe, South America, and across Africa."
+msgstr "نستورد من أوروبا وأمريكا الجنوبية وأنحاء أفريقيا."
+
+#: templates/home.html:54
+msgid "Modern Facilities"
+msgstr "مرافق حديثة"
+
+#: templates/home.html:55
+msgid "High-capacity pens supporting up to 125,000 animals."
+msgstr "حظائر عالية الاستيعاب تدعم حتى 125,000 رأس."
+
+#: templates/home.html:62
+msgid "Our Impact in Numbers"
+msgstr "أرقامنا تتحدث"
+
+#: templates/home.html:66
+msgid "Total Capacity"
+msgstr "القدرة الاستيعابية الكلية"
+
+#: templates/home.html:70
+msgid "Established"
+msgstr "سنة التأسيس"
+
+#: templates/home.html:74
+msgid "Years Experience"
+msgstr "سنوات الخبرة"
+
+#: templates/include/footer.html:6
+msgid ""
+"شركة الهلال الدولي لاستيراد المواشي واللحوم - تميز في صناعة المواشي منذ عام "
+"1985."
+msgstr ""
+
+#: templates/include/footer.html:10
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+#: templates/include/footer.html:13 templates/include/navbar.html:13
+msgid "About Us"
+msgstr "من نحن"
+
+#: templates/include/footer.html:14 templates/include/navbar.html:14
+msgid "Livestock"
+msgstr "المواشي"
+
+#: templates/include/footer.html:15 templates/include/navbar.html:15
+msgid "News"
+msgstr "الأخبار"
+
+#: templates/include/footer.html:21 templates/include/navbar.html:16
+msgid "Contact"
+msgstr "اتصل بنا"
+
+#: templates/include/footer.html:25
+msgid "مصراتة، ليبيا - منطقة طمينة"
+msgstr ""
+
+#: templates/include/footer.html:31
+msgid "All rights reserved."
+msgstr "جميع الحقوق محفوظة."
+
+#: templates/include/navbar.html:20
+msgid "Toggle Menu"
+msgstr ""
+
+#: templates/livestock/detail.html:37
+msgid "Inquire Now"
+msgstr "استفسر الآن"
+
+#: templates/livestock/list.html:4
+msgid "Our Livestock"
+msgstr "مواشينا"
+
+#: templates/livestock/list.html:9
+msgid "Premium Livestock"
+msgstr "مواشي ممتازة"
+
+#: templates/livestock/list.html:26
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+#: templates/livestock/list.html:31
+msgid "No livestock items available at the moment."
+msgstr "لا توجد مواشي متوفرة حالياً."
+
+#: templates/news/detail.html:42
+msgid "Leave a Comment"
+msgstr "اترك تعليقاً"
+
+#: templates/news/detail.html:49
+msgid "Your Comment"
+msgstr "تعليقك"
+
+#: templates/news/detail.html:50
+msgid "Post Comment"
+msgstr "نشر التعليق"
+
+#: templates/news/list.html:4
+msgid "Company News"
+msgstr "أخبار الشركة"
+
+#: templates/news/list.html:9
+msgid "Latest News"
+msgstr "آخر الأخبار"
+
+#: templates/news/list.html:25
+msgid "Read More"
+msgstr "اقرأ المزيد"
+
+#: templates/news/list.html:29
+msgid "No news articles found."
+msgstr "لم يتم العثور على مقالات إخبارية."
+
+#~ msgid "Our Heritage"
+#~ msgstr "تراثنا"
+
+#~ msgid "Excellence Since 1985"
+#~ msgstr "التميز منذ عام 1985"
+
+#~ msgid "Our Infrastructure"
+#~ msgstr "بنيتنا التحتية"
+
+#~ msgid "English"
+#~ msgstr "الإنجليزية"
+
+#~ msgid "Misrata, Libya - Area Tamina"
+#~ msgstr "مصراتة، ليبيا - منطقة طمينة"
+

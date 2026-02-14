@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Our Livestock" %} | ALHILAL ALDAWLY{% endblock %}
+
+{% block content %}
+<section class="page-header bg-black py-5 animate-on-scroll" id="livestock-header"
+    style="--bg-url: url('{% static 'images/livestock_background.jpg' %}')">
+    <div class="container text-center h-100 d-flex align-items-center justify-content-center">
+        <div>
+            <h1 class="display-3 fw-bold text-white text-gradient text-uppercase">{% trans "Premium Livestock" %}</h1>
+            <p class="fs-4 text-white opacity-90 max-w-800 mx-auto">{% if LANGUAGE_CODE == 'ar' %}نحن فخورون بتقديم أفضل أنواع المواشي المستوردة والوطنية بأعلى المعايير الصحية والجودة.{% else %}We are proud to offer the finest types of imported and national livestock with the highest health and quality standards.{% endif %}</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-black">
+    <div class="container py-4">
+        {% for category in categories %}
+        <div class="category-section mb-5 pb-5 animate-on-scroll {% if not forloop.last %}border-bottom border-dark border-opacity-10{% endif %}">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <h2 class="display-5 fw-bold text-dark mb-2 text-gradient">{% if LANGUAGE_CODE == 'ar' %}{{ category.name_ar }}{% else %}{{ category.name_en }}{% endif %}</h2>
+                    <p class="text-primary fw-bold text-uppercase ls-1">{% if LANGUAGE_CODE == 'ar' %}{{ category.description_ar }}{% else %}{{ category.description_en }}{% endif %}</p>
+                </div>
+            </div>
+
+            <!-- Category Media Gallery -->
+            {% if category.media.exists %}
+            <div class="row g-3 mb-5">
+                {% for media in category.media.all %}
+                <div class="{% if media.media_type == 'video' %}col-md-6{% else %}col-md-3{% endif %}">
+                    <div class="glass-premium p-2 rounded-3 h-100 hover-lift">
+                        {% if media.media_type == 'image' %}
+                        <a href="{{ media.file.url }}" target="_blank" class="image-zoom-container d-block rounded-3 h-100">
+                            <img src="{{ media.file.url }}" class="w-100 rounded-3 shadow-sm object-fit-cover" style="height: 250px;" alt="{{ media.caption_ar }}">
+                        </a>
+                        {% elif media.media_type == 'video' %}
+                        <div class="ratio ratio-16x9">
+                            <video controls class="rounded-3">
+                                <source src="{{ media.file.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        {% endif %}
+                        {% if media.caption_ar or media.caption_en %}
+                        <p class="text-muted small mt-2 mb-0 px-2">{% if LANGUAGE_CODE == 'ar' %}{{ media.caption_ar }}{% else %}{{ media.caption_en }}{% endif %}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- Livestock Items in this Category -->
+            <div class="row g-4">
+                {% for item in category.items.all %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="livestock-card glass-premium overflow-hidden hover-lift h-100 shadow-sm border-0">
+                        <div class="position-relative overflow-hidden image-zoom-container" style="height: 280px;">
+                            <img src="{{ item.featured_image.url }}" class="w-100 h-100 object-fit-cover transition-img" alt="{{ item.title_ar }}">
+                        </div>
+                        <div class="p-4 d-flex flex-column">
+                            <h3 class="h5 fw-bold text-dark mb-3">{% if LANGUAGE_CODE == 'ar' %}{{ item.title_ar }}{% else %}{{ item.title_en }}{% endif %}</h3>
+                            <p class="text-muted mb-4 flex-grow-1 small">{% if LANGUAGE_CODE == 'ar' %}{{ item.description_ar|truncatewords:20 }}{% else %}{{ item.description_en|truncatewords:20 }}{% endif %}</p>
+                            <a href="{% url 'livestock:detail' item.slug %}" class="btn btn-outline-primary fw-bold mt-auto btn-sm align-self-start hover-lift">{% trans "Details" %}</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-muted opacity-50">{% trans "No individual items listed in this category yet." %}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="text-center py-5">
+            <h3 class="text-dark">{% trans "No categories found." %}</h3>
+            <p class="text-muted">{% trans "Please add categories and items from the dashboard." %}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<style>
+    #livestock-header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), var(--bg-url);
+        background-size: cover;
+        background-position: center;
+        height: 50vh;
+    }
+
+    .rotate-3d {
+        transform: perspective(1000px) rotateY(-5deg);
+        transition: transform 0.6s ease;
+    }
+
+    .rotate-3d:hover {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+
+    .ls-1 {
+        letter-spacing: 2px;
+    }
+</style>
+{% endblock %}

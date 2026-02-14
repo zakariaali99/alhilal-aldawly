@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{{ item.title_ar }} | ALHILAL ALDAWLY{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-black animate-on-scroll" style="min-height: 100vh;">
+    <div class="container py-5 mt-5">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="detail-gallery">
+                    <div class="main-img glass-premium rounded-4 overflow-hidden mb-4 shadow-lg border-0 hover-lift position-relative" style="height: 500px;">
+                        <img src="{{ item.featured_image.url }}" class="w-100 h-100 object-fit-cover transition-img" alt="{{ item.title_ar }}" id="current-image">
+                        <video id="current-video" class="w-100 h-100 object-fit-cover d-none" controls>
+                            <source src="" type="video/mp4">
+                            {% trans "Your browser does not support the video tag." %}
+                        </video>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-3">
+                            <div class="thumb active glass-premium rounded-3 overflow-hidden cursor-pointer shadow-sm border-0 ratio ratio-1x1" onclick="updateGallery('{{ item.featured_image.url }}', 'image', this)">
+                                <img src="{{ item.featured_image.url }}" class="w-100 h-100 object-fit-cover" alt="thumb">
+                            </div>
+                        </div>
+                        {% for media in item.gallery.all %}
+                        <div class="col-3">
+                            <div class="thumb glass-premium rounded-3 overflow-hidden cursor-pointer shadow-sm border-0 ratio ratio-1x1" onclick="updateGallery('{{ media.file.url }}', '{{ media.media_type }}', this)">
+                                {% if media.media_type == 'video' %}
+                                <div class="d-flex align-items-center justify-content-center bg-light text-primary fs-3">
+                                    <i class="bi bi-play-fill text-primary"></i>
+                                </div>
+                                {% else %}
+                                <img src="{{ media.file.url }}" class="w-100 h-100 object-fit-cover" alt="thumb">
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="detail-info p-lg-4">
+                    <nav aria-label="breadcrumb" class="mb-4">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'core:home' %}" class="text-primary text-decoration-none">{% trans "Home" %}</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'livestock:list' %}" class="text-primary text-decoration-none">{% trans "Livestock" %}</a></li>
+                            <li class="breadcrumb-item active text-dark" aria-current="page">{% if LANGUAGE_CODE == 'ar' %}{{ item.title_ar }}{% else %}{{ item.title_en }}{% endif %}</li>
+                        </ol>
+                    </nav>
+
+                    <span class="badge bg-primary px-3 py-2 fw-bold mb-3 text-uppercase shadow-lg">{% if LANGUAGE_CODE == 'ar' %}{{ item.category.name_ar }}{% else %}{{ item.category.name_en }}{% endif %}</span>
+
+                    <h1 class="display-4 fw-bold text-dark mb-4 text-gradient">{% if LANGUAGE_CODE == 'ar' %}{{ item.title_ar }}{% else %}{{ item.title_en }}{% endif %}</h1>
+
+                    <div class="description text-muted fs-5 mb-5 lh-lg">{% if LANGUAGE_CODE == 'ar' %}{{ item.description_ar|linebreaks }}{% else %}{{ item.description_en|linebreaks }}{% endif %}</div>
+
+                    <div class="detail-actions text-start">
+                        <a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg px-5 py-3 fw-bold shadow-lg">
+                            <i class="bi bi-chat-dots me-2"></i> {% trans "Inquire Now" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .thumb {
+        opacity: 0.6;
+        transition: 0.3s;
+        border: 2px solid transparent !important;
+    }
+
+    .thumb:hover,
+    .thumb.active {
+        opacity: 1;
+        border: 2px solid var(--primary) !important;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    function updateGallery(url, type, element) {
+        const currentImage = document.getElementById('current-image');
+        const currentVideo = document.getElementById('current-video');
+        const thumbs = document.querySelectorAll('.thumb');
+        
+        // Update active thumb
+        thumbs.forEach(t => t.classList.remove('active'));
+        element.classList.add('active');
+
+        if (type === 'image') {
+            currentVideo.classList.add('d-none');
+            currentVideo.pause();
+            currentVideo.src = "";
+            
+            currentImage.src = url;
+            currentImage.classList.remove('d-none');
+        } else if (type === 'video') {
+            currentImage.classList.add('d-none');
+            
+            currentVideo.src = url;
+            currentVideo.classList.remove('d-none');
+            currentVideo.play();
+        }
+    }
+</script>
+{% endblock %}

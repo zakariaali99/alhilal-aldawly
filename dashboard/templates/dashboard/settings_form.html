@@ -1,0 +1,78 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "إعدادات الموقع" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<span>{% trans "الإعدادات" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="form-card" style="max-width: 1000px;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-grid">
+            <!-- Basic Info -->
+            <div class="form-group">
+                <label>{{ form.logo.label }}</label>
+                {{ form.logo }}
+                {% if object.logo %}
+                <img src="{{ object.logo.url }}"
+                    style="height: 50px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 4px; margin-top: 10px;">
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.favicon.label }}</label>
+                {{ form.favicon }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.phone.label }}</label>
+                {{ form.phone }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.email.label }}</label>
+                {{ form.email }}
+            </div>
+
+            <!-- Address -->
+            <div class="form-group full-width">
+                <label>{{ form.address_ar.label }}</label>
+                {{ form.address_ar }}
+            </div>
+
+            <div class="form-group full-width">
+                <label>{{ form.address_en.label }}</label>
+                {{ form.address_en }}
+            </div>
+
+            <!-- Social Media -->
+            <div class="form-group">
+                <label><i class="fab fa-facebook"></i> {{ form.facebook.label }}</label>
+                {{ form.facebook }}
+            </div>
+
+            <div class="form-group">
+                <label><i class="fab fa-twitter"></i> {{ form.twitter.label }}</label>
+                {{ form.twitter }}
+            </div>
+
+            <div class="form-group">
+                <label><i class="fab fa-instagram"></i> {{ form.instagram.label }}</label>
+                {{ form.instagram }}
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn primary">
+                <i class="fas fa-save"></i> {% trans "حفظ الإعدادات" %}
+            </button>
+            <a href="{% url 'dashboard:index' %}" class="btn btn-outline">{% trans "إلغاء" %}</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

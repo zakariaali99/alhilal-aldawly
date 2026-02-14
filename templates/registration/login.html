@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "تسجيل الدخول" %}{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-black animate-on-scroll" style="min-height: 80vh;">
+    <div class="container py-5 mt-5" style="max-width: 450px;">
+        <div class="card glass-premium p-4 p-md-5 rounded-4 shadow-lg border-0 hover-lift">
+            <div class="text-center mb-4">
+                <img src="{% static 'images/favicon.png' %}" alt="Logo" style="height: 60px; margin-bottom: 1rem;">
+                <h2 class="display-6 fw-bold text-dark text-gradient">{% trans "دخول الموظفين" %}</h2>
+            </div>
+
+            <form method="post" class="login-form">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <label class="form-label text-dark small">{% trans "اسم المستخدم" %}</label>
+                    <input type="text" name="username" class="form-control bg-light border-secondary text-dark p-3"
+                        required>
+                </div>
+                <div class="form-group mb-4">
+                    <label class="form-label text-dark small">{% trans "كلمة المرور" %}</label>
+                    <input type="password" name="password" class="form-control bg-light border-secondary text-dark p-3"
+                        required>
+                </div>
+
+                {% if form.errors %}
+                <div class="alert alert-danger py-2 small mb-3">
+                    {% trans "اسم المستخدم أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى." %}
+                </div>
+                {% endif %}
+
+                <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold shadow">
+                    {% trans "دخول" %}
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

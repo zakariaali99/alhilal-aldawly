@@ -1,0 +1,24 @@
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .nav-links {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.rtl .footer-nav a:hover {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.rtl .hero-content h1,
+.rtl .hero-content p {
+    text-align: right;
+}
+
+/* Specific Cairo font for Arabic text */
+.rtl * {
+    font-family: 'Cairo', sans-serif;
+}

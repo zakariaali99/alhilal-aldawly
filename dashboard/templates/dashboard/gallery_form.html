@@ -1,0 +1,83 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "إدارة المعرض" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<a href="{% url 'dashboard:livestock_list' %}">{% trans "المواشي" %}</a>
+<span> / </span>
+<span>{{ livestock_item.title_ar }}</span>
+<span> / </span>
+<a href="{% url 'dashboard:gallery_list' livestock_item.id %}">{% trans "المعرض" %}</a>
+<span> / </span>
+<span>{% trans "إضافة مادة" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{% trans "إضافة مادة للمعرض" %} - {{ livestock_item.title_ar }}</h2>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="dashboard-form">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>{{ form.media_type.label }}</label>
+                {{ form.media_type }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>{{ form.order.label }}</label>
+                {{ form.order }}
+            </div>
+            <div class="col-12 form-group">
+                <label>{{ form.file.label }}</label>
+                {{ form.file }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>{{ form.caption_ar.label }}</label>
+                {{ form.caption_ar }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>{{ form.caption_en.label }}</label>
+                {{ form.caption_en }}
+            </div>
+        </div>
+        <div class="form-actions" style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary">{% trans "حفظ" %}</button>
+            <a href="{% url 'dashboard:gallery_list' livestock_item.id %}" class="btn btn-secondary">{% trans "إلغاء" %}</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .dashboard-form {
+        padding: 2rem;
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--dash-text);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid var(--dash-border);
+        border-radius: 8px;
+        background: var(--dash-card-bg);
+        color: var(--dash-text);
+    }
+    .btn-secondary {
+        background: #6c757d;
+        color: white;
+        text-decoration: none;
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        display: inline-block;
+    }
+</style>
+{% endblock %}

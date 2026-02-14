@@ -1,0 +1,89 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}
+{% if object %}
+{% trans "تعديل صورة الغلاف:" %} {{ object.title_ar }}
+{% else %}
+{% trans "إضافة صورة غلاف جديدة" %}
+{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<a href="{% url 'dashboard:hero_list' %}">{% trans "صور الغلاف" %}</a>
+<span> / </span>
+<span>{% if object %}{% trans "تعديل" %}{% else %}{% trans "إضافة" %}{% endif %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label>{{ form.title_ar.label }}</label>
+                {{ form.title_ar }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.title_en.label }}</label>
+                {{ form.title_en }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.subtitle_ar.label }}</label>
+                {{ form.subtitle_ar }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.subtitle_en.label }}</label>
+                {{ form.subtitle_en }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.cta_text_ar.label }}</label>
+                {{ form.cta_text_ar }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.cta_text_en.label }}</label>
+                {{ form.cta_text_en }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.cta_link.label }}</label>
+                {{ form.cta_link }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.order.label }}</label>
+                {{ form.order }}
+            </div>
+
+            <div class="form-group full-width">
+                <label>{{ form.image.label }}</label>
+                {{ form.image }}
+                {% if object and object.image %}
+                <img src="{{ object.image.url }}" style="height: 150px; margin-top: 10px; border-radius: 8px;">
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-group">
+                    {{ form.is_active }}
+                    <span>{{ form.is_active.label }}</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn primary">
+                <i class="fas fa-save"></i> {% trans "حفظ التغييرات" %}
+            </button>
+            <a href="{% url 'dashboard:hero_list' %}" class="btn btn-outline">{% trans "إلغاء" %}</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

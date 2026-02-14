@@ -1,0 +1,153 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(197, 160, 89, 0.1); color: var(--dash-primary);">
+            <i class="fas fa-sheep"></i>
+        </div>
+        <div class="stat-info">
+            <h3>{{ stats.livestock }}</h3>
+            <p>{% trans "إجمالي المواشي" %}</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(63, 185, 80, 0.1); color: var(--dash-success);">
+            <i class="fas fa-newspaper"></i>
+        </div>
+        <div class="stat-info">
+            <h3>{{ stats.articles }}</h3>
+            <p>{% trans "الأخبار المنشورة" %}</p>
+        </div>
+    </div>
+    <div class="stat-card" {% if stats.unread_messages > 0 %}style="border-color: var(--dash-warning);"{% endif %}>
+        <div class="stat-icon" style="background: rgba(210, 153, 34, 0.1); color: var(--dash-warning);">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="stat-info">
+            <h3>{{ stats.unread_messages }}</h3>
+            <p>{% trans "رسائل جديدة" %}</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(248, 81, 73, 0.1); color: var(--dash-danger);">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="stat-info">
+            <h3>{{ stats.messages }}</h3>
+            <p>{% trans "إجمالي الرسائل" %}</p>
+        </div>
+    </div>
+</div>
+
+<div class="quick-actions" style="margin-bottom: 2.5rem;">
+    <h2 style="margin-bottom: 1.5rem; font-size: 1.2rem;">{% trans "إجراءات سريعة" %}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+        <a href="{% url 'dashboard:livestock_create' %}" class="btn btn-outline"
+            style="justify-content: center; height: 100px; flex-direction: column;">
+            <i class="fas fa-plus-circle" style="font-size: 1.5rem;"></i>
+            <span>{% trans "إضافة مواشي" %}</span>
+        </a>
+        <a href="{% url 'dashboard:news_create' %}" class="btn btn-outline"
+            style="justify-content: center; height: 100px; flex-direction: column;">
+            <i class="fas fa-edit" style="font-size: 1.5rem;"></i>
+            <span>{% trans "نشر مقال" %}</span>
+        </a>
+        <a href="{% url 'dashboard:category_create' %}" class="btn btn-outline"
+            style="justify-content: center; height: 100px; flex-direction: column;">
+            <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
+            <span>{% trans "إضافة تصنيف" %}</span>
+        </a>
+        <a href="{% url 'dashboard:hero_create' %}" class="btn btn-outline"
+            style="justify-content: center; height: 100px; flex-direction: column;">
+            <i class="fas fa-image" style="font-size: 1.5rem;"></i>
+            <span>{% trans "تحديث الغلاف" %}</span>
+        </a>
+        <a href="{% url 'dashboard:settings' %}" class="btn btn-outline"
+            style="justify-content: center; height: 100px; flex-direction: column;">
+            <i class="fas fa-cog" style="font-size: 1.5rem;"></i>
+            <span>{% trans "الإعدادات" %}</span>
+        </a>
+    </div>
+</div>
+
+
+
+
+<div class="dashboard-grid">
+    <!-- Recent Messages -->
+    <div class="card">
+        <div class="card-header">
+            <h2>{% trans "آخر الرسائل" %}</h2>
+            <a href="{% url 'dashboard:message_list' %}" class="btn btn-outline btn-sm">{% trans "عرض الكل" %}</a>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>{% trans "الاسم" %}</th>
+                        <th>{% trans "الموضوع" %}</th>
+                        <th>{% trans "الحالة" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for msg in recent_messages %}
+                    <tr>
+                        <td>{{ msg.name }}</td>
+                        <td>{{ msg.subject }}</td>
+                        <td>
+                            {% if msg.is_read %}
+                            <span class="badge badge-success">{% trans "مقروءة" %}</span>
+                            {% else %}
+                            <span class="badge badge-warning">{% trans "جديدة" %}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" style="text-align: center; padding: 2rem;">{% trans "لا توجد رسائل بعد" %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Recent News -->
+    <div class="card">
+        <div class="card-header">
+            <h2>{% trans "آخر الأخبار" %}</h2>
+            <a href="{% url 'dashboard:news_list' %}" class="btn btn-outline btn-sm">{% trans "عرض الكل" %}</a>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>{% trans "العنوان" %}</th>
+                        <th>{% trans "الحالة" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for article in recent_articles %}
+                    <tr>
+                        <td>{{ article.title_ar }}</td>
+                        <td>
+                            {% if article.is_published %}
+                            <span class="badge badge-success">{% trans "منشور" %}</span>
+                            {% else %}
+                            <span class="badge badge-muted">{% trans "مسودة" %}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="2" style="text-align: center; padding: 2rem;">{% trans "لا توجد أخبار بعد" %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

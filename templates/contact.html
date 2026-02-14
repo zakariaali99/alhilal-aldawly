@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}
+{% if LANGUAGE_CODE == 'ar' %}
+اتصل بنا
+{% else %}
+Contact Us
+{% endif %} | ALHILAL ALDAWLY
+{% endblock %}
+
+{% block content %}
+<section class="page-header bg-black py-5 animate-on-scroll">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mt-5 text-gradient text-uppercase">
+            {% if LANGUAGE_CODE == 'ar' %}
+            تواصل معنا
+            {% else %}
+            Get in Touch
+            {% endif %}
+        </h1>
+    </div>
+</section>
+
+<section class="py-5 bg-black animate-on-scroll">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <div class="contact-form-container glass-premium p-4 p-md-5 rounded-4 shadow-lg border-0 hover-lift">
+                    <h2 class="display-6 fw-bold text-dark mb-4 text-gradient">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        أرسل لنا رسالة
+                        {% else %}
+                        Send Us a Message
+                        {% endif %}
+                    </h2>
+                    <p class="text-dark mb-5">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        هل لديك سؤال أو تريد العمل معنا؟ أرسل لنا رسالة وسنرد عليك قريباً.
+                        {% else %}
+                        Have a question or want to work with us? Drop us a line and we'll get back to you shortly.
+                        {% endif %}
+                    </p>
+
+                    <form method="post" class="contact-form row g-4">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <label class="form-label text-dark small">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                اسمك
+                                {% else %}
+                                Your Name
+                                {% endif %}
+                            </label>
+                            <input type="text" name="name" class="form-control bg-light border-secondary text-dark p-3"
+                                placeholder="{% if LANGUAGE_CODE == 'ar' %}أدخل اسمك{% else %}Enter your name{% endif %}"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-dark small">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                البريد الإلكتروني
+                                {% else %}
+                                Email Address
+                                {% endif %}
+                            </label>
+                            <input type="email" name="email"
+                                class="form-control bg-light border-secondary text-dark p-3"
+                                placeholder="{% if LANGUAGE_CODE == 'ar' %}أدخل بريدك الإلكتروني{% else %}Enter your email{% endif %}"
+                                required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-dark small">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                الموضوع
+                                {% else %}
+                                Subject
+                                {% endif %}
+                            </label>
+                            <input type="text" name="subject"
+                                class="form-control bg-light border-secondary text-dark p-3"
+                                placeholder="{% if LANGUAGE_CODE == 'ar' %}ما الموضوع؟{% else %}What is this regarding?{% endif %}"
+                                required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-dark small">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                الرسالة
+                                {% else %}
+                                Message
+                                {% endif %}
+                            </label>
+                            <textarea name="message" class="form-control bg-light border-secondary text-dark p-3"
+                                rows="6"
+                                placeholder="{% if LANGUAGE_CODE == 'ar' %}أخبرنا بالتفاصيل...{% else %}Tell us details...{% endif %}"
+                                required></textarea>
+                        </div>
+                        <div class="col-12 mt-4 text-start">
+                            <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-bold shadow">
+                                <i class="bi bi-send me-2"></i>
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                إرسال الرسالة
+                                {% else %}
+                                Send Message
+                                {% endif %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="contact-info-panel h-100">
+                    <h2 class="display-6 fw-bold text-dark mb-5">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        معلومات الاتصال
+                        {% else %}
+                        Contact Information
+                        {% endif %}
+                    </h2>
+
+                    <div class="info-card glass-premium p-4 rounded-4 mb-4 border-0 hover-lift shadow-sm">
+                        <div class="d-flex align-items-center">
+                            <div class="info-icon bg-primary bg-opacity-10 rounded-circle text-primary d-flex align-items-center justify-content-center me-4"
+                                style="width: 60px; height: 60px; min-width: 60px;">
+                                <i class="bi bi-geo-alt fs-3"></i>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold text-primary text-uppercase mb-1">
+                                    {% if LANGUAGE_CODE == 'ar' %}
+                                    موقعنا
+                                    {% else %}
+                                    Our Location
+                                    {% endif %}
+                                </h4>
+                                <p class="text-dark mb-0">
+                                    {% if LANGUAGE_CODE == 'ar' %}
+                                    ليبيا - مصراتة - منطقة طمينة
+                                    {% else %}
+                                    Libya - Misrata - Area Tamina
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card glass-premium p-4 rounded-4 mb-4 border-0 hover-lift shadow-sm">
+                        <div class="d-flex align-items-center">
+                            <div class="info-icon bg-primary bg-opacity-10 rounded-circle text-primary d-flex align-items-center justify-content-center me-4"
+                                style="width: 60px; height: 60px; min-width: 60px;">
+                                <i class="bi bi-telephone fs-3"></i>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold text-primary text-uppercase mb-1">
+                                    {% if LANGUAGE_CODE == 'ar' %}
+                                    الهاتف
+                                    {% else %}
+                                    Phone
+                                    {% endif %}
+                                </h4>
+                                <p class="text-dark mb-1" dir="ltr">+218 91 800 84 32</p>
+                                <p class="text-dark mb-0" dir="ltr">+218 91 216 49 51</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card glass-premium p-4 rounded-4 mb-5 border-0 hover-lift shadow-sm">
+                        <div class="d-flex align-items-center">
+                            <div class="info-icon bg-primary bg-opacity-10 rounded-circle text-primary d-flex align-items-center justify-content-center me-4"
+                                style="width: 60px; height: 60px; min-width: 60px;">
+                                <i class="bi bi-envelope fs-3"></i>
+                            </div>
+                            <div>
+                                <h4 class="h6 fw-bold text-primary text-uppercase mb-1">
+                                    {% if LANGUAGE_CODE == 'ar' %}
+                                    البريد الإلكتروني
+                                    {% else %}
+                                    Email
+                                    {% endif %}
+                                </h4>
+                                <p class="text-dark mb-0">info@alhilal.ly</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .form-control:focus {
+        background-color: var(--white) !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 0.25rem rgba(197, 160, 89, 0.25) !important;
+        color: var(--black) !important;
+    }
+</style>
+{% endblock %}

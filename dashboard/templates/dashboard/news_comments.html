@@ -1,0 +1,93 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "تعليقات المقال" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<a href="{% url 'dashboard:news_list' %}">{% trans "الأخبار" %}</a>
+<span> / </span>
+<span>{% trans "التعليقات" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{% trans "تعليقات:" %} {{ article.title_ar }}</h2>
+        <a href="{% url 'dashboard:news_list' %}" class="btn btn-outline btn-sm">
+            <i class="fas fa-arrow-right"></i> {% trans "العودة" %}
+        </a>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "الاسم" %}</th>
+                    <th>{% trans "البريد" %}</th>
+                    <th>{% trans "التعليق" %}</th>
+                    <th>{% trans "التاريخ" %}</th>
+                    <th>{% trans "الحالة" %}</th>
+                    <th>{% trans "الإجراءات" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for comment in comments %}
+                <tr>
+                    <td>{{ comment.commenter.name }}</td>
+                    <td>{{ comment.commenter.email }}</td>
+                    <td style="max-width: 300px;">{{ comment.content|truncatewords:20 }}</td>
+                    <td>{{ comment.created_at|date:"Y-m-d H:i" }}</td>
+                    <td>
+                        {% if comment.is_approved %}
+                        <span class="badge badge-success">{% trans "معتمد" %}</span>
+                        {% else %}
+                        <span class="badge badge-warning">{% trans "قيد المراجعة" %}</span>
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        {% if not comment.is_approved %}
+                        <form action="{% url 'dashboard:comment_approve' comment.id %}" method="post"
+                            style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-outline" title="{% trans 'اعتماد' %}">
+                                <i class="fas fa-check text-success"></i>
+                            </button>
+                        </form>
+                        {% endif %}
+                        <a href="{% url 'dashboard:comment_delete' comment.id %}" class="text-danger"
+                            title="{% trans 'حذف' %}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 2rem;">{% trans "لا توجد تعليقات على هذا المقال"
+                        %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .actions {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+    }
+
+    .actions form {
+        margin: 0;
+    }
+
+    .text-success {
+        color: var(--dash-success);
+    }
+
+    .text-danger {
+        color: var(--dash-danger);
+    }
+</style>
+{% endblock %}

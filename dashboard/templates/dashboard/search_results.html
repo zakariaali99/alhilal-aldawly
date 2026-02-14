@@ -1,0 +1,107 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "نتائج البحث" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<span>{% trans "البحث" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-4" style="margin-bottom: 2rem;">
+    <div class="card-header">
+        <h2>{% trans "نتائج البحث عن:" %} "{{ query }}"</h2>
+    </div>
+    <div class="p-4" style="padding: 1.5rem;">
+        {% if not livestock_results and not news_results %}
+        <div class="text-center" style="padding: 2rem; color: var(--dash-text-muted);">
+            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+            <p>{% trans "لم يتم العثور على أي نتائج مطابقة." %}</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% if livestock_results %}
+<div class="card mb-4" style="margin-bottom: 2rem;">
+    <div class="card-header">
+        <h3><i class="fas fa-sheep"></i> {% trans "المواشي" %} ({{ livestock_results|length }})</h3>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "الصورة" %}</th>
+                    <th>{% trans "العنوان" %}</th>
+                    <th>{% trans "التصنيف" %}</th>
+                    <th>{% trans "الإجراءات" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in livestock_results %}
+                <tr>
+                    <td>
+                        <img src="{{ item.featured_image.url }}"
+                            style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                    </td>
+                    <td>{{ item.title_ar }}</td>
+                    <td>{{ item.category.name_ar }}</td>
+                    <td class="actions">
+                        <a href="{% url 'dashboard:livestock_edit' item.id %}" class="text-primary"><i
+                                class="fas fa-edit"></i></a>
+                        <a href="{% url 'dashboard:livestock_delete' item.id %}" class="text-danger"><i
+                                class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+{% if news_results %}
+<div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-newspaper"></i> {% trans "الأخبار" %} ({{ news_results|length }})</h3>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "الصورة" %}</th>
+                    <th>{% trans "العنوان" %}</th>
+                    <th>{% trans "الحالة" %}</th>
+                    <th>{% trans "الإجراءات" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in news_results %}
+                <tr>
+                    <td>
+                        <img src="{{ article.featured_image.url }}"
+                            style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                    </td>
+                    <td>{{ article.title_ar }}</td>
+                    <td>
+                        {% if article.is_published %}
+                        <span class="badge badge-success">{% trans "منشور" %}</span>
+                        {% else %}
+                        <span class="badge badge-muted">{% trans "مسودة" %}</span>
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        <a href="{% url 'dashboard:news_edit' article.id %}" class="text-primary"><i
+                                class="fas fa-edit"></i></a>
+                        <a href="{% url 'dashboard:news_delete' article.id %}" class="text-danger"><i
+                                class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

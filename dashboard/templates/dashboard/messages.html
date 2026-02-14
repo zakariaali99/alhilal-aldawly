@@ -1,0 +1,74 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "رسائل التواصل" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<span>{% trans "الرسائل" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{% trans "الرسائل الواردة" %}</h2>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "الاسم" %}</th>
+                    <th>{% trans "البريد الإلكتروني" %}</th>
+                    <th>{% trans "الموضوع" %}</th>
+                    <th>{% trans "التاريخ" %}</th>
+                    <th>{% trans "الحالة" %}</th>
+                    <th>{% trans "الإجراءات" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for msg in messages %}
+                <tr {% if not msg.is_read %}style="background: rgba(255,255,255,0.02);" {% endif %}>
+                    <td>{{ msg.name }}</td>
+                    <td>{{ msg.email }}</td>
+                    <td>{{ msg.subject }}</td>
+                    <td>{{ msg.created_at|date:"Y-m-d" }}</td>
+                    <td>
+                        {% if msg.is_read %}
+                        <span class="badge badge-success">{% trans "مقروءة" %}</span>
+                        {% else %}
+                        <span class="badge badge-warning">{% trans "جديدة" %}</span>
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        <a href="{% url 'dashboard:message_detail' msg.id %}" class="text-primary"><i
+                                class="fas fa-eye"></i></a>
+                        <a href="{% url "dashboard:message_delete" msg.id %}" class="text-danger"><i
+                                class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 2rem;">{% trans "لا توجد رسائل واردة" %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .actions {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .text-primary {
+        color: var(--dash-primary);
+    }
+
+    .text-danger {
+        color: var(--dash-danger);
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}
+{% if LANGUAGE_CODE == 'ar' %}
+من نحن | الهلال الدولي
+{% else %}
+About Us | Alhilal International
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="page-header bg-black py-5 animate-on-scroll">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mt-5 text-dark text-gradient text-uppercase">
+            {% if LANGUAGE_CODE == 'ar' %}
+            تراثنا
+            {% else %}
+            Our Heritage
+            {% endif %}
+        </h1>
+    </div>
+</section>
+
+<section class="py-5 bg-black animate-on-scroll">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="about-text">
+                    <h6 class="text-primary text-uppercase fw-bold mb-2 ls-1">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        قصتنا
+                        {% else %}
+                        Our Story
+                        {% endif %}
+                    </h6>
+                    <h2 class="display-5 fw-bold text-dark mb-4 text-gradient">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        التميز منذ عام 1985
+                        {% else %}
+                        Excellence Since 1985
+                        {% endif %}
+                    </h2>
+                    <div class="text-content text-dark fs-5 lh-lg mb-5">
+                        <p>
+                            {% if LANGUAGE_CODE == 'ar' %}
+                            تأسست <strong class="text-dark">شركة الهلال الدولي</strong> عام 2015 كإمتداد للشركة الأم
+                            <strong class="text-dark">"الجبل الأخضر"</strong> التي تأسست عام 2005.
+                            نمتلك خبرة عريقة في مجال المواشي واللحوم تمتد لعام 1985 تقريباً، ونحن معروفون في جميع أنحاء
+                            ليبيا باسم <strong class="text-dark">"بركش"</strong>.
+                            {% else %}
+                            <strong class="text-dark">Alhilal International Company</strong> was established in 2015 as
+                            an extension of our parent company, <strong class="text-dark">"Al Jabal Al Akhdar"</strong>,
+                            founded in 2005.
+                            Our deep-rooted experience in the livestock and meat industry dates back to approximately
+                            1985. We are widely recognized across Libya by the name <strong
+                                class="text-dark">"Barkash"</strong>.
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if LANGUAGE_CODE == 'ar' %}
+                            تخصصنا يشمل بيع الإبل والأبقار والأغنام، سواء للتربية أو الذبح، بجميع الوسائل المتاحة لخدمة
+                            عملائنا. نضمن تواجدنا الدائم لتلبية احتياجات السوق وتعزيز ثقة العملاء بتفانينا.
+                            {% else %}
+                            We specialize in the sale of camels, cows, and sheep for both breeding and slaughter,
+                            utilizing all available means to serve our customers. We participate primarily in meeting
+                            market needs and reinforcing customer trust through our dedication.
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <div class="products-box glass-premium p-4 border-0 shadow-sm hover-lift">
+                        <h4 class="text-primary fw-bold h5 mb-3">
+                            {% if LANGUAGE_CODE == 'ar' %}
+                            منتجاتنا تشمل:
+                            {% else %}
+                            Our Products Include:
+                            {% endif %}
+                        </h4>
+                        <ul class="list-unstyled mb-0 text-muted opacity-75 fs-6">
+                            {% if LANGUAGE_CODE == 'ar' %}
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> الأغنام والأبقار
+                                المستوردة (الدرجة الأولى)</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> الأغنام الوطنية
+                                الليبية</li>
+                            <li class="mb-0"><i class="bi bi-check-circle-fill text-primary me-2"></i> الأغنام والعجول
+                                والإبل من السودان وتشاد</li>
+                            {% else %}
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Imported Premium
+                                Sheep & Cows (First Class)</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Libyan National
+                                Sheep</li>
+                            <li class="mb-0"><i class="bi bi-check-circle-fill text-primary me-2"></i> Sheep, Calves &
+                                Camels from Sudan & Chad</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div class="col-6">
+                        <div class="stat-item glass-premium p-4 text-center h-100 hover-lift shadow">
+                            <span class="display-5 fw-bold text-primary d-block mb-1">2015</span>
+                            <span class="text-dark small text-uppercase fw-bold">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                تأسيس الهلال
+                                {% else %}
+                                Alhilal Founded
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-item glass-premium p-4 text-center h-100 hover-lift shadow">
+                            <span class="display-5 fw-bold text-primary d-block mb-1">1985</span>
+                            <span class="text-dark small text-uppercase fw-bold">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                بداية الخبرة
+                                {% else %}
+                                Experience Since
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-item glass-premium p-4 text-center h-100 hover-lift shadow">
+                            <span class="display-5 fw-bold text-primary d-block mb-1">125K+</span>
+                            <span class="text-dark small text-uppercase fw-bold">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                القدرة الاستيعابية
+                                {% else %}
+                                Total Capacity
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-item glass-premium p-4 text-center h-100 hover-lift shadow">
+                            <span class="display-5 fw-bold text-primary d-block mb-1">12+</span>
+                            <span class="text-dark small text-uppercase fw-bold">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                شركاء دوليون
+                                {% else %}
+                                Global Partners
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-dark animate-on-scroll">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary text-uppercase fw-bold mb-2 ls-1">
+                {% if LANGUAGE_CODE == 'ar' %}
+                عالمياً
+                {% else %}
+                Worldwide
+                {% endif %}
+            </h6>
+            <h2 class="display-5 fw-bold text-dark mb-4 text-gradient">
+                {% if LANGUAGE_CODE == 'ar' %}
+                نطاق استيرادنا العالمي
+                {% else %}
+                Our Global Import Network
+                {% endif %}
+            </h2>
+            <p class="text-dark fs-5 max-w-800 mx-auto">
+                {% if LANGUAGE_CODE == 'ar' %}
+                لقد حظينا بشرف العمل مع مجموعة متنوعة من الشركات العالمية الرائدة. نستورد المواشي الحية من أغلب دول
+                العالم:
+                {% else %}
+                We have had the honor of working with a diverse range of leading international companies, importing live
+                livestock from:
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}رومانيا{% else %}Romania{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}أوكرانيا{% else %}Ukraine{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}إسبانيا{% else %}Spain{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}كرواتيا{% else %}Croatia{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}أيرلندا{% else %}Ireland{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}التشيك{% else %}Czechia{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}المجر{% else %}Hungary{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}مولدوفا{% else %}Moldova{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}أستراليا{% else %}Australia{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}البرازيل{% else %}Brazil{% endif %}
+            </span>
+            <span
+                class="country-tag glass-premium px-4 py-2 text-dark hover-lift cursor-default border-secondary small fw-bold">
+                {% if LANGUAGE_CODE == 'ar' %}البرتغال{% else %}Portugal{% endif %}
+            </span>
+        </div>
+    </div>
+</section>
+
+<style>
+    .country-tag {
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 50px;
+        cursor: default;
+    }
+
+    .country-tag:hover {
+        background: var(--primary);
+        color: white !important;
+        border-color: var(--primary);
+    }
+</style>
+{% endblock %}

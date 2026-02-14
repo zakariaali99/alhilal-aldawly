@@ -1,0 +1,56 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "تفاصيل الرسالة" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<a href="{% url 'dashboard:message_list' %}">{% trans "الرسائل" %}</a>
+<span> / </span>
+<span>{% trans "عرض" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <div class="detail-card">
+        <div class="detail-row">
+            <div class="detail-label">{% trans "الاسم الكامل" %}</div>
+            <div class="detail-value">{{ message.name }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">{% trans "البريد الإلكتروني" %}</div>
+            <div class="detail-value">{{ message.email }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">{% trans "رقم الهاتف" %}</div>
+            <div class="detail-value">{{ message.phone|default:"---" }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">{% trans "الموضوع" %}</div>
+            <div class="detail-value">{{ message.subject }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">{% trans "نص الرسالة" %}</div>
+            <div class="detail-value" style="white-space: pre-wrap;">{{ message.message }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">{% trans "تاريخ الإرسال" %}</div>
+            <div class="detail-value">{{ message.created_at|date:"Y-m-d H:i" }}</div>
+        </div>
+    </div>
+
+    <div class="form-actions" style="justify-content: space-between;">
+        <a href="{% url 'dashboard:message_list' %}" class="btn btn-outline">
+            <i class="fas fa-arrow-right"></i> {% trans "العودة للقائمة" %}
+        </a>
+        <a href="mailto:{{ message.email }}" class="btn primary">
+            <i class="fas fa-reply"></i> {% trans "رد عبر البريد" %}
+        </a>
+    </div>
+</div>
+{% endblock %}

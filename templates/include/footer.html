@@ -1,0 +1,187 @@
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+<footer id="main-footer" class="bg-white py-5 border-top border-dark border-opacity-10 mt-auto animate-on-scroll">
+    <div class="container py-4">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="footer-info">
+                    <a href="{% url 'core:home' %}" class="d-inline-block mb-4">
+                        <img src="{% static 'images/favicon.png' %}" alt="Logo" class="footer-logo"
+                            style="height: 60px;">
+                    </a>
+                    <p class="text-black fs-5 lh-lg mb-4" style="max-width: 400px; font-weight: 500;">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        تميز في تربية واستيراد المواشي
+                        {% else %}
+                        Excellence in livestock breeding and import
+                        {% endif %}
+                    </p>
+                    <div class="social-links d-flex gap-3 mb-4">
+                        <a href="#" class="social-circle shadow-sm"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="social-circle shadow-sm"><i class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-nav">
+                    <h4 class="text-primary fw-bold h5 mb-4 text-uppercase ls-1">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        روابط سريعة
+                        {% else %}
+                        Quick Links
+                        {% endif %}
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <a href="{% url 'core:home' %}"
+                                class="text-black text-decoration-none transition-link fw-medium">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                الرئيسية
+                                {% else %}
+                                Home
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="{% url 'core:about' %}"
+                                class="text-black text-decoration-none transition-link fw-medium">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                من نحن
+                                {% else %}
+                                About Us
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="{% url 'livestock:list' %}"
+                                class="text-black text-decoration-none transition-link fw-medium">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                المواشي
+                                {% else %}
+                                Livestock
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="{% url 'news:list' %}"
+                                class="text-black text-decoration-none transition-link fw-medium">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                الأخبار
+                                {% else %}
+                                News
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <a href="{% url 'core:contact' %}"
+                                class="text-black text-decoration-none transition-link fw-medium">
+                                {% if LANGUAGE_CODE == 'ar' %}
+                                اتصل بنا
+                                {% else %}
+                                Contact Us
+                                {% endif %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-contact">
+                    <h4 class="text-primary fw-bold h5 mb-4 text-uppercase ls-1">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        اتصل بنا
+                        {% else %}
+                        Contact
+                        {% endif %}
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="d-flex mb-3 align-items-center text-black fw-medium">
+                            <i class="bi bi-geo-alt text-primary me-3 fs-5"></i>
+                            <span>
+                                <a href="https://maps.app.goo.gl/P7iW8afZuo5Q8XXz6" target="_blank"
+                                    class="text-black text-decoration-none">
+                                    {% if LANGUAGE_CODE == 'ar' %}
+                                    مصراتة، ليبيا - منطقة طمينة
+                                    {% else %}
+                                    Libya - Misrata - Tamina Area
+                                    {% endif %}
+                                </a>
+                            </span>
+                        </li>
+                        <li class="d-flex mb-3 align-items-center text-black fw-medium">
+                            <i class="bi bi-whatsapp text-primary me-3 fs-5"></i>
+                            <span dir="ltr">
+                                <a href="https://wa.me/218912164951" target="_blank"
+                                    class="text-black text-decoration-none">0912164951</a>
+                            </span>
+                        </li>
+                        <li class="d-flex mb-3 align-items-center text-black fw-medium">
+                            <i class="bi bi-telephone text-primary me-3 fs-5"></i>
+                            <span dir="ltr">
+                                <a href="tel:0918008432" class="text-black text-decoration-none">0918008432</a>
+                            </span>
+                        </li>
+                        <li class="d-flex mb-0 align-items-center text-black fw-medium">
+                            <i class="bi bi-envelope text-primary me-3 fs-5"></i>
+                            <span>
+                                <a href="mailto:info@alhilal.ly"
+                                    class="text-black text-decoration-none">info@alhilal.ly</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom py-4 border-top border-dark border-opacity-10 mt-4">
+        <div class="container text-center">
+            <p class="text-black small mb-0 fw-medium">
+                &copy; {% now "Y" %}
+                {% if LANGUAGE_CODE == 'ar' %}
+                الهلال الدولي
+                {% else %}
+                Alhilal International
+                {% endif %}.
+                {% if LANGUAGE_CODE == 'ar' %}
+                جميع الحقوق محفوظة.
+                {% else %}
+                All rights reserved.
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</footer>
+<style>
+    .transition-link {
+        transition: 0.3s;
+    }
+
+    .transition-link:hover {
+        color: var(--primary) !important;
+        padding-right: 5px;
+    }
+
+    [dir="ltr"] .transition-link:hover {
+        padding-left: 5px;
+        padding-right: 0;
+    }
+
+    .social-circle {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(197, 160, 89, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        transition: var(--transition);
+        text-decoration: none;
+    }
+
+    .social-circle:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+    }
+</style>

@@ -1,0 +1,936 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-25 05:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: alhilal_project/settings.py:132
+msgid "Arabic"
+msgstr ""
+
+#: alhilal_project/settings.py:133
+msgid "English"
+msgstr ""
+
+#: core/admin.py:5
+msgid "لوحة تحكم الهلال الدولي"
+msgstr "Alhilal International Dashboard"
+
+#: core/admin.py:6 dashboard/templates/dashboard/base.html:8
+msgid "الهلال الدولي"
+msgstr "Alhilal International"
+
+#: core/admin.py:7
+msgid "إدارة الموقع"
+msgstr "Site Administration"
+
+#: core/models.py:5
+msgid "Logo"
+msgstr ""
+
+#: core/models.py:6
+msgid "Favicon"
+msgstr ""
+
+#: core/models.py:7 core/models.py:45 templates/contact.html:47
+msgid "Phone"
+msgstr ""
+
+#: core/models.py:8 core/models.py:44 news/models.py:25
+#: templates/contact.html:55 templates/news/detail.html:46
+msgid "Email"
+msgstr ""
+
+#: core/models.py:9
+msgid "Address (Ar)"
+msgstr ""
+
+#: core/models.py:10
+msgid "Address (En)"
+msgstr ""
+
+#: core/models.py:11
+msgid "Facebook"
+msgstr ""
+
+#: core/models.py:12
+msgid "Twitter"
+msgstr ""
+
+#: core/models.py:13
+msgid "Instagram"
+msgstr ""
+
+#: core/models.py:16 core/models.py:17 core/models.py:20
+msgid "Site Settings"
+msgstr ""
+
+#: core/models.py:23 livestock/models.py:24 news/models.py:6
+msgid "Title (Ar)"
+msgstr ""
+
+#: core/models.py:24 livestock/models.py:25 news/models.py:7
+msgid "Title (En)"
+msgstr ""
+
+#: core/models.py:25
+msgid "Subtitle (Ar)"
+msgstr ""
+
+#: core/models.py:26
+msgid "Subtitle (En)"
+msgstr ""
+
+#: core/models.py:27
+msgid "Background Image"
+msgstr ""
+
+#: core/models.py:28
+msgid "CTA Text (Ar)"
+msgstr ""
+
+#: core/models.py:29
+msgid "CTA Text (En)"
+msgstr ""
+
+#: core/models.py:30
+msgid "CTA Link"
+msgstr ""
+
+#: core/models.py:31
+msgid "Is Active"
+msgstr ""
+
+#: core/models.py:32 livestock/models.py:12 livestock/models.py:51
+msgid "Order"
+msgstr "Order"
+
+#: core/models.py:35
+msgid "Hero Section"
+msgstr ""
+
+#: core/models.py:36
+msgid "Hero Sections"
+msgstr ""
+
+#: core/models.py:43 news/models.py:24 templates/news/detail.html:45
+msgid "Name"
+msgstr ""
+
+#: core/models.py:46 templates/contact.html:26
+msgid "Subject"
+msgstr ""
+
+#: core/models.py:47 templates/contact.html:29
+msgid "Message"
+msgstr ""
+
+#: core/models.py:48 livestock/models.py:31 news/models.py:26
+#: news/models.py:39
+msgid "Created At"
+msgstr ""
+
+#: core/models.py:49
+msgid "Is Read"
+msgstr ""
+
+#: core/models.py:52
+msgid "Contact Message"
+msgstr ""
+
+#: core/models.py:53
+msgid "Contact Messages"
+msgstr ""
+
+#: dashboard/templates/dashboard/base.html:8
+#: dashboard/templates/dashboard/base.html:30
+msgid "لوحة التحكم"
+msgstr "Dashboard"
+
+#: dashboard/templates/dashboard/base.html:36
+#: dashboard/templates/dashboard/base.html:119
+#: dashboard/templates/dashboard/base.html:123
+msgid "الرئيسية"
+msgstr "Dashboard"
+
+#: dashboard/templates/dashboard/base.html:41
+#: dashboard/templates/dashboard/livestock_form.html:14
+#: dashboard/templates/dashboard/livestock_list.html:8
+#: dashboard/templates/dashboard/search_results.html:29
+msgid "المواشي"
+msgstr "Livestock"
+
+#: dashboard/templates/dashboard/base.html:46
+#: dashboard/templates/dashboard/category_form.html:14
+#: dashboard/templates/dashboard/category_list.html:8
+msgid "التصنيفات"
+msgstr "Categories"
+
+#: dashboard/templates/dashboard/base.html:51
+#: dashboard/templates/dashboard/news_form.html:14
+#: dashboard/templates/dashboard/news_list.html:8
+#: dashboard/templates/dashboard/search_results.html:67
+msgid "الأخبار"
+msgstr "News"
+
+#: dashboard/templates/dashboard/base.html:56
+#: dashboard/templates/dashboard/message_detail.html:8
+#: dashboard/templates/dashboard/messages.html:8
+msgid "الرسائل"
+msgstr "Messages"
+
+#: dashboard/templates/dashboard/base.html:64
+#: dashboard/templates/dashboard/hero_form.html:14
+#: dashboard/templates/dashboard/hero_list.html:8
+msgid "صور الغلاف"
+msgstr "Hero Images"
+
+#: dashboard/templates/dashboard/base.html:69
+#: dashboard/templates/dashboard/index.html:65
+#: dashboard/templates/dashboard/settings_form.html:8
+msgid "الإعدادات"
+msgstr "Settings"
+
+#: dashboard/templates/dashboard/base.html:75
+msgid "عرض الموقع"
+msgstr "View Site"
+
+#: dashboard/templates/dashboard/base.html:88
+msgid "البحث في لوحة التحكم..."
+msgstr "Search dashboard..."
+
+#: dashboard/templates/dashboard/category_form.html:6
+msgid "تعديل التصنيف:"
+msgstr "Edit Category:"
+
+#: dashboard/templates/dashboard/category_form.html:8
+msgid "إضافة تصنيف جديد"
+msgstr "Add New Category"
+
+#: dashboard/templates/dashboard/category_form.html:16
+#: dashboard/templates/dashboard/hero_form.html:16
+#: dashboard/templates/dashboard/livestock_form.html:16
+#: dashboard/templates/dashboard/news_form.html:16
+msgid "تعديل"
+msgstr "Edit"
+
+#: dashboard/templates/dashboard/category_form.html:16
+#: dashboard/templates/dashboard/hero_form.html:16
+#: dashboard/templates/dashboard/livestock_form.html:16
+#: dashboard/templates/dashboard/news_form.html:16
+msgid "إضافة"
+msgstr "Add"
+
+#: dashboard/templates/dashboard/category_form.html:67
+#: dashboard/templates/dashboard/livestock_form.html:73
+msgid "حفظ"
+msgstr "Save"
+
+#: dashboard/templates/dashboard/category_form.html:69
+#: dashboard/templates/dashboard/hero_form.html:85
+#: dashboard/templates/dashboard/livestock_form.html:75
+#: dashboard/templates/dashboard/news_form.html:79
+#: dashboard/templates/dashboard/settings_form.html:74
+msgid "إلغاء"
+msgstr "Cancel"
+
+#: dashboard/templates/dashboard/category_list.html:4
+msgid "إدارة التصنيفات"
+msgstr "Category Management"
+
+#: dashboard/templates/dashboard/category_list.html:14
+msgid "تصنيفات المواشي"
+msgstr "Livestock Categories"
+
+#: dashboard/templates/dashboard/category_list.html:16
+msgid "إضافة تصنيف"
+msgstr "Add Category"
+
+#: dashboard/templates/dashboard/category_list.html:23
+msgid "الأيقونة"
+msgstr "Icon"
+
+#: dashboard/templates/dashboard/category_list.html:24
+msgid "الاسم (Ar)"
+msgstr "Name (Ar)"
+
+#: dashboard/templates/dashboard/category_list.html:25
+msgid "الاسم (En)"
+msgstr "Name (En)"
+
+#: dashboard/templates/dashboard/category_list.html:26
+#: dashboard/templates/dashboard/hero_list.html:26
+msgid "الترتيب"
+msgstr "Order"
+
+#: dashboard/templates/dashboard/category_list.html:27
+#: dashboard/templates/dashboard/hero_list.html:27
+#: dashboard/templates/dashboard/livestock_list.html:27
+#: dashboard/templates/dashboard/messages.html:25
+#: dashboard/templates/dashboard/news_list.html:27
+#: dashboard/templates/dashboard/search_results.html:38
+#: dashboard/templates/dashboard/search_results.html:76
+msgid "الإجراءات"
+msgstr "Actions"
+
+#: dashboard/templates/dashboard/category_list.html:52
+msgid "لا توجد تصنيفات مضافة"
+msgstr "No categories added"
+
+#: dashboard/templates/dashboard/confirm_delete.html:4
+msgid "تأكيد الحذف"
+msgstr "Confirm Delete"
+
+#: dashboard/templates/dashboard/confirm_delete.html:9
+msgid "هل أنت متأكد؟"
+msgstr "Are you sure?"
+
+#: dashboard/templates/dashboard/confirm_delete.html:13
+msgid "أنت على وشك حذف:"
+msgstr "You are about to delete:"
+
+#: dashboard/templates/dashboard/confirm_delete.html:15
+msgid "هذا الإجراء لا يمكن التراجع عنه."
+msgstr "This action cannot be undone."
+
+#: dashboard/templates/dashboard/confirm_delete.html:22
+msgid "حذف نهائي"
+msgstr "Delete Permanently"
+
+#: dashboard/templates/dashboard/hero_form.html:6
+msgid "تعديل صورة الغلاف:"
+msgstr "Edit Hero Image:"
+
+#: dashboard/templates/dashboard/hero_form.html:8
+msgid "إضافة صورة غلاف جديدة"
+msgstr "Add New Hero Image"
+
+#: dashboard/templates/dashboard/hero_form.html:83
+msgid "حفظ التغييرات"
+msgstr "Save Changes"
+
+#: dashboard/templates/dashboard/hero_list.html:4
+msgid "إدارة صور الغلاف (Hero)"
+msgstr "Hero Images Management"
+
+#: dashboard/templates/dashboard/hero_list.html:14
+msgid "قائمة الصور"
+msgstr "Images List"
+
+#: dashboard/templates/dashboard/hero_list.html:16
+msgid "إضافة صورة جديدة"
+msgstr "Add New Image"
+
+#: dashboard/templates/dashboard/hero_list.html:23
+#: dashboard/templates/dashboard/livestock_list.html:23
+#: dashboard/templates/dashboard/news_list.html:23
+#: dashboard/templates/dashboard/search_results.html:35
+#: dashboard/templates/dashboard/search_results.html:73
+msgid "الصورة"
+msgstr "Image"
+
+#: dashboard/templates/dashboard/hero_list.html:24
+msgid "العنوان (Ar)"
+msgstr "Title (Ar)"
+
+#: dashboard/templates/dashboard/hero_list.html:25
+#: dashboard/templates/dashboard/index.html:90
+#: dashboard/templates/dashboard/index.html:127
+#: dashboard/templates/dashboard/messages.html:24
+#: dashboard/templates/dashboard/news_list.html:26
+#: dashboard/templates/dashboard/search_results.html:75
+msgid "الحالة"
+msgstr "Status"
+
+#: dashboard/templates/dashboard/hero_list.html:40
+msgid "نشط"
+msgstr "Active"
+
+#: dashboard/templates/dashboard/hero_list.html:42
+msgid "غير نشط"
+msgstr "Inactive"
+
+#: dashboard/templates/dashboard/hero_list.html:55
+msgid "لا توجد صور غلاف مضافة"
+msgstr "No hero images added"
+
+#: dashboard/templates/dashboard/index.html:12
+msgid "إجمالي المواشي"
+msgstr "Total Livestock"
+
+#: dashboard/templates/dashboard/index.html:21
+msgid "الأخبار المنشورة"
+msgstr "Published News"
+
+#: dashboard/templates/dashboard/index.html:30
+msgid "رسائل جديدة"
+msgstr "New Messages"
+
+#: dashboard/templates/dashboard/index.html:39
+msgid "إجمالي الرسائل"
+msgstr "Total Messages"
+
+#: dashboard/templates/dashboard/index.html:45
+msgid "إجراءات سريعة"
+msgstr "Quick Actions"
+
+#: dashboard/templates/dashboard/index.html:50
+msgid "إضافة مواشي"
+msgstr "Add Livestock"
+
+#: dashboard/templates/dashboard/index.html:55
+msgid "نشر مقال"
+msgstr "Post Article"
+
+#: dashboard/templates/dashboard/index.html:60
+msgid "تحديث الغلاف"
+msgstr "Update Hero"
+
+#: dashboard/templates/dashboard/index.html:71
+msgid "نشاط الموقع"
+msgstr "Site Activity"
+
+#: dashboard/templates/dashboard/index.html:81
+msgid "آخر الرسائل"
+msgstr "Recent Messages"
+
+#: dashboard/templates/dashboard/index.html:82
+#: dashboard/templates/dashboard/index.html:120
+msgid "عرض الكل"
+msgstr "View All"
+
+#: dashboard/templates/dashboard/index.html:88
+#: dashboard/templates/dashboard/messages.html:20
+msgid "الاسم"
+msgstr "Name"
+
+#: dashboard/templates/dashboard/index.html:89
+#: dashboard/templates/dashboard/message_detail.html:32
+#: dashboard/templates/dashboard/messages.html:22
+msgid "الموضوع"
+msgstr "Subject"
+
+#: dashboard/templates/dashboard/index.html:100
+#: dashboard/templates/dashboard/messages.html:37
+msgid "مقروءة"
+msgstr "Read"
+
+#: dashboard/templates/dashboard/index.html:102
+#: dashboard/templates/dashboard/messages.html:39
+msgid "جديدة"
+msgstr "New"
+
+#: dashboard/templates/dashboard/index.html:108
+msgid "لا توجد رسائل بعد"
+msgstr "No messages yet"
+
+#: dashboard/templates/dashboard/index.html:119
+msgid "آخر الأخبار"
+msgstr "Recent News"
+
+#: dashboard/templates/dashboard/index.html:126
+#: dashboard/templates/dashboard/livestock_list.html:24
+#: dashboard/templates/dashboard/news_list.html:24
+#: dashboard/templates/dashboard/search_results.html:36
+#: dashboard/templates/dashboard/search_results.html:74
+msgid "العنوان"
+msgstr "Title"
+
+#: dashboard/templates/dashboard/index.html:136
+#: dashboard/templates/dashboard/news_list.html:41
+#: dashboard/templates/dashboard/search_results.html:89
+msgid "منشور"
+msgstr "Published"
+
+#: dashboard/templates/dashboard/index.html:138
+#: dashboard/templates/dashboard/news_list.html:43
+#: dashboard/templates/dashboard/search_results.html:91
+msgid "مسودة"
+msgstr "Draft"
+
+#: dashboard/templates/dashboard/index.html:144
+msgid "لا توجد أخبار بعد"
+msgstr "No news yet"
+
+#: dashboard/templates/dashboard/index.html:162
+msgid "الزيارات"
+msgstr "Visits"
+
+#: dashboard/templates/dashboard/livestock_form.html:6
+msgid "تعديل:"
+msgstr "Edit:"
+
+#: dashboard/templates/dashboard/livestock_form.html:8
+msgid "إضافة مواشي جديدة"
+msgstr "Add New Livestock"
+
+#: dashboard/templates/dashboard/livestock_list.html:4
+msgid "إدارة المواشي"
+msgstr "Livestock Management"
+
+#: dashboard/templates/dashboard/livestock_list.html:14
+msgid "قائمة المواشي"
+msgstr "Livestock List"
+
+#: dashboard/templates/dashboard/livestock_list.html:16
+msgid "إضافة جديد"
+msgstr "Add New"
+
+#: dashboard/templates/dashboard/livestock_list.html:25
+#: dashboard/templates/dashboard/search_results.html:37
+msgid "التصنيف"
+msgstr "Category"
+
+#: dashboard/templates/dashboard/livestock_list.html:26
+msgid "تاريخ الإضافة"
+msgstr "Date Added"
+
+#: dashboard/templates/dashboard/livestock_list.html:49
+msgid "لا توجد مواشي مضافة"
+msgstr "No livestock added"
+
+#: dashboard/templates/dashboard/message_detail.html:4
+msgid "تفاصيل الرسالة"
+msgstr "Message Details"
+
+#: dashboard/templates/dashboard/message_detail.html:10
+msgid "عرض"
+msgstr "View"
+
+#: dashboard/templates/dashboard/message_detail.html:17
+msgid "الاسم الكامل"
+msgstr "Full Name"
+
+#: dashboard/templates/dashboard/message_detail.html:22
+#: dashboard/templates/dashboard/messages.html:21
+msgid "البريد الإلكتروني"
+msgstr "Email"
+
+#: dashboard/templates/dashboard/message_detail.html:27
+msgid "رقم الهاتف"
+msgstr "Phone Number"
+
+#: dashboard/templates/dashboard/message_detail.html:37
+msgid "نص الرسالة"
+msgstr "Message Body"
+
+#: dashboard/templates/dashboard/message_detail.html:42
+msgid "تاريخ الإرسال"
+msgstr "Sent Date"
+
+#: dashboard/templates/dashboard/message_detail.html:49
+msgid "العودة للقائمة"
+msgstr "Back to List"
+
+#: dashboard/templates/dashboard/message_detail.html:52
+msgid "رد عبر البريد"
+msgstr "Reply via Email"
+
+#: dashboard/templates/dashboard/messages.html:4
+msgid "رسائل التواصل"
+msgstr "Contact Messages"
+
+#: dashboard/templates/dashboard/messages.html:14
+msgid "الرسائل الواردة"
+msgstr "Incoming Messages"
+
+#: dashboard/templates/dashboard/messages.html:23
+msgid "التاريخ"
+msgstr "Date"
+
+#: dashboard/templates/dashboard/messages.html:51
+msgid "لا توجد رسائل واردة"
+msgstr "No incoming messages"
+
+#: dashboard/templates/dashboard/news_form.html:6
+msgid "تعديل المقال:"
+msgstr "Edit Article:"
+
+#: dashboard/templates/dashboard/news_form.html:8
+msgid "إضافة مقال جديد"
+msgstr "Add New Article"
+
+#: dashboard/templates/dashboard/news_form.html:77
+msgid "نشر المقال"
+msgstr "Publish Article"
+
+#: dashboard/templates/dashboard/news_list.html:4
+msgid "إدارة الأخبار"
+msgstr "News Management"
+
+#: dashboard/templates/dashboard/news_list.html:14
+msgid "قائمة المقالات"
+msgstr "Articles List"
+
+#: dashboard/templates/dashboard/news_list.html:16
+msgid "إضافة مقال"
+msgstr "Add Article"
+
+#: dashboard/templates/dashboard/news_list.html:25
+msgid "تاريخ النشر"
+msgstr "Published Date"
+
+#: dashboard/templates/dashboard/news_list.html:55
+msgid "لا توجد أخبار مضافة"
+msgstr "No news added"
+
+#: dashboard/templates/dashboard/search_results.html:4
+msgid "نتائج البحث"
+msgstr "Search Results"
+
+#: dashboard/templates/dashboard/search_results.html:8
+msgid "البحث"
+msgstr "Search"
+
+#: dashboard/templates/dashboard/search_results.html:14
+msgid "نتائج البحث عن:"
+msgstr "Search results for:"
+
+#: dashboard/templates/dashboard/search_results.html:20
+msgid "لم يتم العثور على أي نتائج مطابقة."
+msgstr "No matching results found."
+
+#: dashboard/templates/dashboard/settings_form.html:4
+msgid "إعدادات الموقع"
+msgstr "Site Settings"
+
+#: dashboard/templates/dashboard/settings_form.html:72
+msgid "حفظ الإعدادات"
+msgstr "Save Settings"
+
+#: livestock/models.py:6
+msgid "Name (Ar)"
+msgstr ""
+
+#: livestock/models.py:7
+msgid "Name (En)"
+msgstr "Name (En)"
+
+#: livestock/models.py:8 livestock/models.py:26 news/models.py:8
+msgid "Slug"
+msgstr "Slug"
+
+#: livestock/models.py:9 livestock/models.py:27
+msgid "Description (Ar)"
+msgstr ""
+
+#: livestock/models.py:10 livestock/models.py:28
+msgid "Description (En)"
+msgstr ""
+
+#: livestock/models.py:11
+msgid "Icon"
+msgstr ""
+
+#: livestock/models.py:15 livestock/models.py:23
+msgid "Category"
+msgstr ""
+
+#: livestock/models.py:16
+msgid "Categories"
+msgstr ""
+
+#: livestock/models.py:29 news/models.py:11
+msgid "Featured Image"
+msgstr ""
+
+#: livestock/models.py:30
+msgid "Is Featured"
+msgstr ""
+
+#: livestock/models.py:34 livestock/models.py:46
+msgid "Livestock Item"
+msgstr ""
+
+#: livestock/models.py:35
+msgid "Livestock Items"
+msgstr ""
+
+#: livestock/models.py:43
+msgid "Image"
+msgstr ""
+
+#: livestock/models.py:44
+msgid "Video"
+msgstr ""
+
+#: livestock/models.py:47
+msgid "Media Type"
+msgstr ""
+
+#: livestock/models.py:48
+msgid "File"
+msgstr ""
+
+#: livestock/models.py:49
+msgid "Caption (Ar)"
+msgstr ""
+
+#: livestock/models.py:50
+msgid "Caption (En)"
+msgstr ""
+
+#: livestock/models.py:54
+msgid "Gallery Item"
+msgstr ""
+
+#: livestock/models.py:55
+msgid "Gallery Items"
+msgstr ""
+
+#: news/models.py:9
+msgid "Content (Ar)"
+msgstr ""
+
+#: news/models.py:10
+msgid "Content (En)"
+msgstr ""
+
+#: news/models.py:12
+msgid "Published At"
+msgstr ""
+
+#: news/models.py:13
+msgid "Is Published"
+msgstr ""
+
+#: news/models.py:16 news/models.py:36
+msgid "Article"
+msgstr ""
+
+#: news/models.py:17
+msgid "Articles"
+msgstr ""
+
+#: news/models.py:29 news/models.py:37
+msgid "Commenter"
+msgstr ""
+
+#: news/models.py:30
+msgid "Commenters"
+msgstr ""
+
+#: news/models.py:38 news/models.py:43
+msgid "Comment"
+msgstr ""
+
+#: news/models.py:40
+msgid "Is Approved"
+msgstr ""
+
+#: news/models.py:44 templates/news/detail.html:25
+msgid "Comments"
+msgstr ""
+
+#: templates/contact.html:4 templates/include/footer.html:16
+msgid "Contact Us"
+msgstr ""
+
+#: templates/contact.html:9
+msgid "Get in Touch"
+msgstr ""
+
+#: templates/contact.html:16
+msgid "Send Us a Message"
+msgstr ""
+
+#: templates/contact.html:20
+msgid "Your Name"
+msgstr ""
+
+#: templates/contact.html:23
+msgid "Email Address"
+msgstr ""
+
+#: templates/contact.html:31
+msgid "Send Message"
+msgstr ""
+
+#: templates/contact.html:36
+msgid "Contact Information"
+msgstr ""
+
+#: templates/contact.html:40
+msgid "Our Location"
+msgstr ""
+
+#: templates/contact.html:41
+msgid "Libya - Misrata - Area Tamina"
+msgstr ""
+
+#: templates/home.html:4 templates/include/footer.html:12
+#: templates/include/navbar.html:12
+msgid "Home"
+msgstr ""
+
+#: templates/home.html:29
+msgid "Welcome to"
+msgstr ""
+
+#: templates/home.html:30
+msgid "The leader in livestock and meat importation in Libya."
+msgstr ""
+
+#: templates/home.html:32
+msgid "Explore Livestock"
+msgstr ""
+
+#: templates/home.html:33
+msgid "Our Story"
+msgstr ""
+
+#: templates/home.html:44
+msgid "Premium Quality"
+msgstr ""
+
+#: templates/home.html:45
+msgid "We select the finest livestock from the best sources worldwide."
+msgstr ""
+
+#: templates/home.html:49
+msgid "Global Network"
+msgstr ""
+
+#: templates/home.html:50
+msgid "Importing from Europe, South America, and across Africa."
+msgstr ""
+
+#: templates/home.html:54
+msgid "Modern Facilities"
+msgstr ""
+
+#: templates/home.html:55
+msgid "High-capacity pens supporting up to 125,000 animals."
+msgstr ""
+
+#: templates/home.html:62
+msgid "Our Impact in Numbers"
+msgstr ""
+
+#: templates/home.html:66
+msgid "Total Capacity"
+msgstr ""
+
+#: templates/home.html:70
+msgid "Established"
+msgstr ""
+
+#: templates/home.html:74
+msgid "Years Experience"
+msgstr ""
+
+#: templates/include/footer.html:6
+msgid ""
+"شركة الهلال الدولي لاستيراد المواشي واللحوم - تميز في صناعة المواشي منذ عام "
+"1985."
+msgstr ""
+
+#: templates/include/footer.html:10
+msgid "Quick Links"
+msgstr ""
+
+#: templates/include/footer.html:13 templates/include/navbar.html:13
+msgid "About Us"
+msgstr ""
+
+#: templates/include/footer.html:14 templates/include/navbar.html:14
+msgid "Livestock"
+msgstr ""
+
+#: templates/include/footer.html:15 templates/include/navbar.html:15
+msgid "News"
+msgstr ""
+
+#: templates/include/footer.html:21 templates/include/navbar.html:16
+msgid "Contact"
+msgstr ""
+
+#: templates/include/footer.html:25
+msgid "مصراتة، ليبيا - منطقة طمينة"
+msgstr ""
+
+#: templates/include/footer.html:31
+msgid "All rights reserved."
+msgstr ""
+
+#: templates/include/navbar.html:24
+msgid "Toggle Menu"
+msgstr ""
+
+#: templates/livestock/detail.html:37
+msgid "Inquire Now"
+msgstr ""
+
+#: templates/livestock/list.html:4
+msgid "Our Livestock"
+msgstr ""
+
+#: templates/livestock/list.html:9
+msgid "Premium Livestock"
+msgstr ""
+
+#: templates/livestock/list.html:26
+msgid "View Details"
+msgstr ""
+
+#: templates/livestock/list.html:31
+msgid "No livestock items available at the moment."
+msgstr ""
+
+#: templates/news/detail.html:41
+msgid "Leave a Comment"
+msgstr ""
+
+#: templates/news/detail.html:48
+msgid "Your Comment"
+msgstr ""
+
+#: templates/news/detail.html:49
+msgid "Post Comment"
+msgstr ""
+
+#: templates/news/list.html:4
+msgid "Company News"
+msgstr ""
+
+#: templates/news/list.html:9
+msgid "Latest News"
+msgstr ""
+
+#: templates/news/list.html:25
+msgid "Read More"
+msgstr ""
+
+#: templates/news/list.html:29
+msgid "No news articles found."
+msgstr ""
+
+#: templates/registration/login.html:4
+msgid "تسجيل الدخول"
+msgstr ""
+
+#: templates/registration/login.html:12
+msgid "دخول الموظفين"
+msgstr ""
+
+#: templates/registration/login.html:30
+msgid "اسم المستخدم أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى."
+msgstr ""
+
+#: templates/registration/login.html:34
+msgid "دخول"
+msgstr ""

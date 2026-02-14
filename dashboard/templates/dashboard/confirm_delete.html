@@ -1,0 +1,29 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "تأكيد الحذف" %}{% endblock %}
+
+{% block content %}
+<div class="form-card" style="max-width: 500px;">
+    <h2 style="color: var(--dash-danger); margin-bottom: 1.5rem;">
+        <i class="fas fa-exclamation-triangle"></i> {% trans "هل أنت متأكد؟" %}
+    </h2>
+
+    <p style="margin-bottom: 2rem; color: var(--dash-text-muted);">
+        {% trans "أنت على وشك حذف:" %}
+        <strong style="color: var(--dash-text);">{{ object }}</strong>.
+        {% trans "هذا الإجراء لا يمكن التراجع عنه." %}
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-actions">
+            <button type="submit" class="btn" style="background: var(--dash-danger); color: white;">
+                <i class="fas fa-trash"></i> {% trans "حذف نهائي" %}
+            </button>
+            <a href="{{ request.META.HTTP_REFERER|default:'dashboard:index' }}" class="btn btn-outline">{% trans "إلغاء"
+                %}</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

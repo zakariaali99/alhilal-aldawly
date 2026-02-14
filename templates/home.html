@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}{% trans "Home" %} | ALHILAL ALDAWLY{% endblock %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+<style>
+    .text-real-white {
+        color: #ffffff !important;
+    }
+</style>
+<section id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner">
+        {% for hero in heroes %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}"
+            style="height: calc(100vh - var(--header-height));">
+            <div class="hero-img-overlay"
+                style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('{{ hero.image.url }}'); height: 100%; background-size: cover; background-position: center;">
+            </div>
+            <div class="carousel-caption d-flex flex-column justify-content-center h-100 text-start">
+                <div class="container py-5">
+                    <h1 class="display-1 fw-bold reveal-text text-real-white mt-3">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        {{ hero.title_ar }}
+                        {% else %}
+                        {{ hero.title_en }}
+                        {% endif %}
+                    </h1>
+                    <p class="fs-4 reveal-p text-real-white mb-5 max-w-800">
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        {{ hero.subtitle_ar }}
+                        {% else %}
+                        {{ hero.subtitle_en }}
+                        {% endif %}
+                    </p>
+                    <div class="reveal-btn">
+                        <a href="{{ hero.cta_link }}" class="btn btn-primary btn-lg px-5 py-3 fw-bold">
+                            {% if LANGUAGE_CODE == 'ar' %}
+                            {{ hero.cta_text_ar }}
+                            {% else %}
+                            {{ hero.cta_text_en }}
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 glass-premium rounded-4 hover-lift h-100">
+                    <div class="icon-circle bg-primary text-white mb-4 fs-2 mx-auto"
+                        style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                        <i class="bi bi-award"></i>
+                    </div>
+                    <h3 class="mb-3 text-dark">{% if LANGUAGE_CODE == 'ar' %}جودة عالية{% else %}High Quality{% endif %}
+                    </h3>
+                    <p class=" text-dark">{% if LANGUAGE_CODE == 'ar' %}نضمن لكم أجود أنواع المواشي واللحوم المستوردة
+                        وفق أعلى المعايير.{% else %}We guarantee the highest quality of imported livestock and meat
+                        according to the highest standards.{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 glass-premium rounded-4 hover-lift h-100">
+                    <div class="icon-circle bg-primary text-white mb-4 fs-2 mx-auto"
+                        style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3 class="mb-3 text-dark">{% if LANGUAGE_CODE == 'ar' %}رعاية صحية{% else %}Healthcare{% endif %}
+                    </h3>
+                    <p class=" text-dark">{% if LANGUAGE_CODE == 'ar' %}جميع مواشينا تخضع لفحوصات بيطرية دقيقة لضمان
+                        سلامتها.{% else %}All our livestock feel rigorous veterinary examinations to ensure their
+                        safety.{% endif %}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 glass-premium rounded-4 hover-lift h-100">
+                    <div class="icon-circle bg-primary text-white mb-4 fs-2 mx-auto"
+                        style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h3 class="mb-3 text-dark">{% if LANGUAGE_CODE == 'ar' %}نقل آمن{% else %}Safe Transport{% endif %}
+                    </h3>
+                    <p class="text-dark">{% if LANGUAGE_CODE == 'ar' %}نستخدم أحدث وسائل النقل لضمان راحة وسلامة
+                        المواشي.{% else %}We use the latest transportation methods to ensure the comfort and safety of
+                        livestock.{% endif %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <h2 class="display-4 fw-bold text-dark mb-4">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    من نحن
+                    {% else %}
+                    About Us
+                    {% endif %}
+                </h2>
+                <p class="lead text-dark mb-4">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    الهلال الدولي هي شركة رائدة في استيراد المواشي واللحوم في ليبيا، نعمل منذ سنوات على توفير أفضل
+                    المنتجات لعملائنا.
+                    {% else %}
+                    Alhilal International is a leading livestock and meat import company in Libya, working for years to
+                    provide the best products to our customers.
+                    {% endif %}
+                </p>
+                <p class="text-dark">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    نحن ملتزمون بتقديم أعلى معايير الجودة والخدمة، مع التركيز على رضا العملاء والاستدامة.
+                    {% else %}
+                    We are committed to delivering the highest standards of quality and service, with a focus on
+                    customer satisfaction and sustainability.
+                    {% endif %}
+                </p>
+                <a href="{% url 'core:about' %}" class="btn btn-primary btn-lg mt-3">
+                    {% if LANGUAGE_CODE == 'ar' %}اعرف المزيد{% else %}Learn More{% endif %}
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="stat-card bg-white p-4 rounded-4 shadow-sm text-center">
+                            <h3 class="display-4 fw-bold text-primary mb-2">15+</h3>
+                            <p class="text-dark mb-0">
+                                {% if LANGUAGE_CODE == 'ar' %}سنوات خبرة{% else %}Years Experience{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-card bg-white p-4 rounded-4 shadow-sm text-center">
+                            <h3 class="display-4 fw-bold text-primary mb-2">5000+</h3>
+                            <p class="text-dark mb-0">
+                                {% if LANGUAGE_CODE == 'ar' %}عميل سعيد{% else %}Happy Clients{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-card bg-white p-4 rounded-4 shadow-sm text-center">
+                            <h3 class="display-4 fw-bold text-primary mb-2">100%</h3>
+                            <p class="text-dark mb-0">
+                                {% if LANGUAGE_CODE == 'ar' %}جودة مضمونة{% else %}Quality Guaranteed{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-card bg-white p-4 rounded-4 shadow-sm text-center">
+                            <h3 class="display-4 fw-bold text-primary mb-2">24/7</h3>
+                            <p class="text-dark mb-0">
+                                {% if LANGUAGE_CODE == 'ar' %}دعم العملاء{% else %}Customer Support{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-4 fw-bold text-dark mb-3">
+                {% if LANGUAGE_CODE == 'ar' %}
+                أحدث الأخبار
+                {% else %}
+                Latest News
+                {% endif %}
+            </h2>
+            <p class="lead text-dark">
+                {% if LANGUAGE_CODE == 'ar' %}
+                ابقَ على اطلاع بأحدث التطورات والمستجدات
+                {% else %}
+                Stay updated with our latest developments and news
+                {% endif %}
+            </p>
+        </div>
+        <div class="row g-4">
+            {% for article in recent_articles %}
+            <div class="col-md-4">
+                <div class="news-card glass-premium overflow-hidden hover-lift h-100 shadow-sm border-0 p-0 text-start">
+                    <div class="position-relative overflow-hidden image-zoom-container" style="height: 240px;">
+                        {% if article.featured_image %}
+                        <img src="{{ article.featured_image.url }}" class="w-100 h-100 object-fit-cover transition-img"
+                            alt="{{ article.title_ar }}">
+                        {% endif %}
+                    </div>
+                    <div class="p-4 d-flex flex-column">
+                        <small class="text-primary mb-2 fw-bold text-uppercase"><i class="bi bi-calendar3 me-2"></i>{{
+                            article.published_at|date:"d M, Y" }}</small>
+                        <h3 class="h4 fw-bold text-dark mb-3">{% if LANGUAGE_CODE == 'ar' %}{{ article.title_ar }}{%
+                            else %}{{ article.title_en }}{% endif %}</h3>
+                        <a href="{% url 'news:detail' article.slug %}"
+                            class="btn btn-outline-primary fw-bold mt-auto btn-sm align-self-start hover-lift">{% trans
+                            "Read More" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <p class="text-muted fs-4">{% trans "No news articles found." %}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="{% url 'news:list' %}" class="btn btn-primary btn-lg px-5">
+                {% if LANGUAGE_CODE == 'ar' %}مشاهدة جميع الأخبار{% else %}View All News{% endif %}
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold mb-3">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    هل أنت مستعد للبدء؟
+                    {% else %}
+                    Ready to Get Started?
+                    {% endif %}
+                </h2>
+                <p class="lead mb-0">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    تواصل معنا اليوم للحصول على أفضل العروض والخدمات
+                    {% else %}
+                    Contact us today to get the best offers and services
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="{% url 'core:contact' %}" class="btn btn-light btn-lg px-5 py-3 fw-bold">
+                    {% if LANGUAGE_CODE == 'ar' %}اتصل بنا الآن{% else %}Contact Us Now{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

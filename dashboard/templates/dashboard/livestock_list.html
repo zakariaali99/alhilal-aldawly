@@ -1,0 +1,74 @@
+{% extends 'dashboard/base.html' %}
+{% load i18n static %}
+
+{% block page_title %}{% trans "إدارة المواشي" %}{% endblock %}
+
+{% block breadcrumbs %}
+<span> / </span>
+<span>{% trans "المواشي" %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{% trans "قائمة المواشي" %}</h2>
+        <a href="{% url 'dashboard:livestock_create' %}" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i> {% trans "إضافة جديد" %}
+        </a>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "الصورة" %}</th>
+                    <th>{% trans "العنوان" %}</th>
+                    <th>{% trans "التصنيف" %}</th>
+                    <th>{% trans "تاريخ الإضافة" %}</th>
+                    <th>{% trans "الإجراءات" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>
+                        <img src="{{ item.featured_image.url }}"
+                            style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">
+                    </td>
+                    <td>{{ item.title_ar }}</td>
+                    <td>{{ item.category.name_ar }}</td>
+                    <td>{{ item.created_at|date:"Y-m-d" }}</td>
+                    <td class="actions">
+                        <a href="{% url 'dashboard:gallery_list' item.id %}" class="text-info"
+                            title="{% trans 'المعرض' %}"><i class="fas fa-images"></i></a>
+                        <a href="{% url 'dashboard:livestock_edit' item.id %}" class="text-primary"><i
+                                class="fas fa-edit"></i></a>
+                        <a href="{% url 'dashboard:livestock_delete' item.id %}" class="text-danger"><i
+                                class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 2rem;">{% trans "لا توجد مواشي مضافة" %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .actions {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .text-primary {
+        color: var(--dash-primary);
+    }
+
+    .text-danger {
+        color: var(--dash-danger);
+    }
+</style>
+{% endblock %}
