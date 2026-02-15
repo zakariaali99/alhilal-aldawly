@@ -11,7 +11,10 @@ from news.models import Article, Comment
 class DashboardMixin(LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['unread_messages_count'] = ContactMessage.objects.filter(is_read=False).count()
+        try:
+            context['unread_messages_count'] = ContactMessage.objects.filter(is_read=False).count()
+        except Exception:
+            context['unread_messages_count'] = 0
         return context
 
 class DashboardIndexView(DashboardMixin, TemplateView):
@@ -19,14 +22,24 @@ class DashboardIndexView(DashboardMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['stats'] = {
-            'messages': ContactMessage.objects.count(),
-            'unread_messages': context['unread_messages_count'],
-            'livestock': LivestockItem.objects.count(),
-            'articles': Article.objects.count(),
-        }
-        context['recent_messages'] = ContactMessage.objects.all()[:5]
-        context['recent_articles'] = Article.objects.all()[:5]
+        try:
+            context['stats'] = {
+                'messages': ContactMessage.objects.count(),
+                'unread_messages': context.get('unread_messages_count', 0),
+                'livestock': LivestockItem.objects.count(),
+                'articles': Article.objects.count(),
+            }
+            context['recent_messages'] = ContactMessage.objects.all()[:5]
+            context['recent_articles'] = Article.objects.all()[:5]
+        except Exception:
+            context['stats'] = {
+                'messages': 0,
+                'unread_messages': 0,
+                'livestock': 0,
+                'articles': 0,
+            }
+            context['recent_messages'] = []
+            context['recent_articles'] = []
         return context
 
 class SearchView(DashboardMixin, TemplateView):
