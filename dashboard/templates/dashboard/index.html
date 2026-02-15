@@ -21,7 +21,7 @@
             <p>{% trans "الأخبار المنشورة" %}</p>
         </div>
     </div>
-    <div class="stat-card" {% if stats.unread_messages > 0 %}style="border-color: var(--dash-warning);"{% endif %}>
+    <div class="stat-card" {% if stats.unread_messages> 0 %}style="border-color: var(--dash-warning);"{% endif %}>
         <div class="stat-icon" style="background: rgba(210, 153, 34, 0.1); color: var(--dash-warning);">
             <i class="fas fa-envelope"></i>
         </div>
@@ -43,7 +43,7 @@
 
 <div class="quick-actions" style="margin-bottom: 2.5rem;">
     <h2 style="margin-bottom: 1.5rem; font-size: 1.2rem;">{% trans "إجراءات سريعة" %}</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+    <div class="quick-actions-grid">
         <a href="{% url 'dashboard:livestock_create' %}" class="btn btn-outline"
             style="justify-content: center; height: 100px; flex-direction: column;">
             <i class="fas fa-plus-circle" style="font-size: 1.5rem;"></i>

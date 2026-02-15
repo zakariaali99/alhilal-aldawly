@@ -25,27 +25,40 @@
             <div class="col-md-6 form-group">
                 <label>{{ form.media_type.label }}</label>
                 {{ form.media_type }}
+                {% if form.media_type.errors %}<div class="text-danger small">{{ form.media_type.errors }}</div>{% endif         %}
             </div>
             <div class="col-md-6 form-group">
                 <label>{{ form.order.label }}</label>
                 {{ form.order }}
+                {% if form.order.errors %}<div class="text-danger small">{{ form.order.errors }}</div>{% endif %}
             </div>
             <div class="col-12 form-group">
                 <label>{{ form.file.label }}</label>
                 {{ form.file }}
+                {% if form.file.errors %}<div class="text-danger small">{{ form.file.errors }}</div>{% endif %}
+            </div>
+            <div class="col-md-6 form-group">
+                <div class="checkbox-group">
+                    {{ form.mute_video }}
+                    <label style="display: inline; margin-right: 0.5rem;">{% trans "كتم صوت الفيديو" %}</label>
+                </div>
+                <small style="display: block; color: #888; margin-top: 0.3rem;">{% trans "إذا تم التفعيل، سيتم إزالة           الصوت من الفيديو نهائياً" %}</small>
+                {% if form.mute_video.errors %}<div class="text-danger small">{{ form.mute_video.errors }}</div>{% endif         %}
             </div>
             <div class="col-md-6 form-group">
                 <label>{{ form.caption_ar.label }}</label>
                 {{ form.caption_ar }}
+                {% if form.caption_ar.errors %}<div class="text-danger small">{{ form.caption_ar.errors }}</div>{% endif         %}
             </div>
             <div class="col-md-6 form-group">
                 <label>{{ form.caption_en.label }}</label>
                 {{ form.caption_en }}
+                {% if form.caption_en.errors %}<div class="text-danger small">{{ form.caption_en.errors }}</div>{% endif         %}
             </div>
         </div>
         <div class="form-actions" style="margin-top: 2rem;">
             <button type="submit" class="btn btn-primary">{% trans "حفظ" %}</button>
-            <a href="{% url 'dashboard:gallery_list' livestock_item.id %}" class="btn btn-secondary">{% trans "إلغاء" %}</a>
+            <a href="{% url 'dashboard:gallery_list' livestock_item.id %}" class="btn btn-outline">{% trans "إلغاء"         %}</a>
         </div>
     </form>
 </div>
@@ -54,16 +67,21 @@
     .dashboard-form {
         padding: 2rem;
     }
+
     .form-group {
         margin-bottom: 1.5rem;
     }
+
     .form-group label {
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 600;
         color: var(--dash-text);
     }
-    .form-group input, .form-group select, .form-group textarea {
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
         width: 100%;
         padding: 0.8rem;
         border: 1px solid var(--dash-border);
@@ -71,6 +89,7 @@
         background: var(--dash-card-bg);
         color: var(--dash-text);
     }
+
     .btn-secondary {
         background: #6c757d;
         color: white;

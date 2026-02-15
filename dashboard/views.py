@@ -226,7 +226,7 @@ class GalleryListView(DashboardMixin, ListView):
 class GalleryCreateView(DashboardMixin, CreateView):
     model = MediaGalleryItem
     template_name = 'dashboard/gallery_form.html'
-    fields = ['media_type', 'file', 'caption_ar', 'caption_en', 'order']
+    fields = ['media_type', 'file', 'mute_video', 'caption_ar', 'caption_en', 'order']
 
     def form_valid(self, form):
         form.instance.livestock_item = get_object_or_404(LivestockItem, pk=self.kwargs['pk'])

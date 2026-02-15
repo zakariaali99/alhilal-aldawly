@@ -1,113 +1,72 @@
 {% extends 'base.html' %}
 {% load i18n static %}
-
+{% get_current_language as LANGUAGE_CODE %}
 {% block title %}{{ item.title_ar }} | ALHILAL ALDAWLY{% endblock %}
-
 {% block content %}
 <section class="py-5 bg-black animate-on-scroll" style="min-height: 100vh;">
-    <div class="container py-5 mt-5">
-        <div class="row g-5">
-            <div class="col-lg-6">
-                <div class="detail-gallery">
-                    <div class="main-img glass-premium rounded-4 overflow-hidden mb-4 shadow-lg border-0 hover-lift position-relative" style="height: 500px;">
-                        <img src="{{ item.featured_image.url }}" class="w-100 h-100 object-fit-cover transition-img" alt="{{ item.title_ar }}" id="current-image">
-                        <video id="current-video" class="w-100 h-100 object-fit-cover d-none" controls>
-                            <source src="" type="video/mp4">
-                            {% trans "Your browser does not support the video tag." %}
-                        </video>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-3">
-                            <div class="thumb active glass-premium rounded-3 overflow-hidden cursor-pointer shadow-sm border-0 ratio ratio-1x1" onclick="updateGallery('{{ item.featured_image.url }}', 'image', this)">
-                                <img src="{{ item.featured_image.url }}" class="w-100 h-100 object-fit-cover" alt="thumb">
-                            </div>
-                        </div>
-                        {% for media in item.gallery.all %}
-                        <div class="col-3">
-                            <div class="thumb glass-premium rounded-3 overflow-hidden cursor-pointer shadow-sm border-0 ratio ratio-1x1" onclick="updateGallery('{{ media.file.url }}', '{{ media.media_type }}', this)">
-                                {% if media.media_type == 'video' %}
-                                <div class="d-flex align-items-center justify-content-center bg-light text-primary fs-3">
-                                    <i class="bi bi-play-fill text-primary"></i>
-                                </div>
-                                {% else %}
-                                <img src="{{ media.file.url }}" class="w-100 h-100 object-fit-cover" alt="thumb">
-                                {% endif %}
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="detail-info p-lg-4">
-                    <nav aria-label="breadcrumb" class="mb-4">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{% url 'core:home' %}" class="text-primary text-decoration-none">{% trans "Home" %}</a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'livestock:list' %}" class="text-primary text-decoration-none">{% trans "Livestock" %}</a></li>
-                            <li class="breadcrumb-item active text-dark" aria-current="page">{% if LANGUAGE_CODE == 'ar' %}{{ item.title_ar }}{% else %}{{ item.title_en }}{% endif %}</li>
-                        </ol>
-                    </nav>
-
-                    <span class="badge bg-primary px-3 py-2 fw-bold mb-3 text-uppercase shadow-lg">{% if LANGUAGE_CODE == 'ar' %}{{ item.category.name_ar }}{% else %}{{ item.category.name_en }}{% endif %}</span>
-
-                    <h1 class="display-4 fw-bold text-dark mb-4 text-gradient">{% if LANGUAGE_CODE == 'ar' %}{{ item.title_ar }}{% else %}{{ item.title_en }}{% endif %}</h1>
-
-                    <div class="description text-muted fs-5 mb-5 lh-lg">{% if LANGUAGE_CODE == 'ar' %}{{ item.description_ar|linebreaks }}{% else %}{{ item.description_en|linebreaks }}{% endif %}</div>
-
-                    <div class="detail-actions text-start">
-                        <a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg px-5 py-3 fw-bold shadow-lg">
-                            <i class="bi bi-chat-dots me-2"></i> {% trans "Inquire Now" %}
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container py-5 mt-5">
+<div class="row g-5">
+<div class="col-lg-6">
+<div class="detail-gallery">
+<div class="main-img glass-premium rounded-4 overflow-hidden mb-5 shadow-lg border-0 ratio ratio-3x4 position-relative">
+<img src="{{ item.featured_image.url }}" class="w-100 h-100 object-fit-cover" alt="{{ item.title_ar }}">
+</div>
+{% if item.gallery.all %}<h3 class="h4 fw-bold text-white mb-3">{% if LANGUAGE_CODE == 'ar' %}الصور{% else %}Images{% endif %}</h3>
+<div class="row g-3 mb-5">{% for media in item.gallery.all %}{% if media.media_type == 'image' %}<div class="col-4"><div class="glass-premium rounded-3 overflow-hidden shadow-sm border-0 ratio ratio-3x4 hover-lift cursor-pointer" onclick="openLightbox('{{ media.file.url }}', 'image')"><img src="{{ media.file.url }}" class="w-100 h-100 object-fit-cover" alt="Gallery Image"></div></div>{% endif %}{% endfor %}</div>
+<h3 class="h4 fw-bold text-white mb-3">{% if LANGUAGE_CODE == 'ar' %}الفيديو{% else %}Videos{% endif %}</h3>
+<div class="row g-3">{% for media in item.gallery.all %}{% if media.media_type == 'video' %}<div class="col-6"><div class="glass-premium rounded-3 overflow-hidden shadow-sm border-0 hover-lift ratio ratio-3x4 bg-dark cursor-pointer position-relative" onclick="openLightbox('{{ media.file.url }}', 'video')"><video class="w-100 h-100 object-fit-cover" muted><source src="{{ media.file.url }}" type="video/mp4"></video><div class="position-absolute top-50 start-50 translate-middle text-white" style="font-size: 2.5rem; opacity: 0.8; pointer-events: none;"><i class="bi bi-play-circle-fill"></i></div></div></div>{% endif %}{% endfor %}</div>
+{% endif %}
+</div>
+</div>
+<div class="col-lg-6">
+<div class="detail-info p-lg-4">
+<nav aria-label="breadcrumb" class="mb-4">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{% url 'core:home' %}" class="text-primary text-decoration-none">{% trans "Home" %}</a></li>
+<li class="breadcrumb-item"><a href="{% url 'livestock:list' %}" class="text-primary text-decoration-none">{% trans "Livestock" %}</a></li>
+<li class="breadcrumb-item active text-white" aria-current="page">{% if LANGUAGE_CODE == 'ar' %}{{ item.title_ar }}{% else %}{{ item.title_en }}{% endif %}</li>
+</ol>
+</nav>
+<span class="badge bg-primary px-3 py-2 fw-bold mb-3 text-uppercase shadow-sm text-dark">{% if LANGUAGE_CODE == 'ar' %}{{ item.category.name_ar }}{% else %}{{ item.category.name_en }}{% endif %}</span>
+<h1 class="display-4 fw-bold text-white mb-4 text-gradient">{% if LANGUAGE_CODE == 'ar' %}{{ item.title_ar }}{% else %}{{ item.title_en }}{% endif %}</h1>
+<div class="description text-white opacity-75 fs-5 mb-5 lh-lg">{% if LANGUAGE_CODE == 'ar' %}{{ item.description_ar|linebreaks }}{% else %}{{ item.description_en|linebreaks }}{% endif %}</div>
+<div class="detail-actions text-start">
+<a href="{% url 'core:contact' %}" class="btn btn-primary btn-lg px-5 py-3 fw-bold shadow-lg hover-lift"><i class="bi bi-chat-dots me-2 text-dark"></i> <span class="text-dark">{% trans "Inquire Now" %}</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<style>
-    .thumb {
-        opacity: 0.6;
-        transition: 0.3s;
-        border: 2px solid transparent !important;
-    }
-
-    .thumb:hover,
-    .thumb.active {
-        opacity: 1;
-        border: 2px solid var(--primary) !important;
-    }
-
-    .cursor-pointer {
-        cursor: pointer;
-    }
-</style>
-
+<div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content bg-transparent border-0">
+<div class="modal-body p-0 position-relative text-center">
+<button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+<img src="" id="lightboxImage" class="img-fluid rounded-4 shadow-lg d-none" style="max-height: 90vh;">
+<video id="lightboxVideo" class="rounded-4 shadow-lg d-none" controls autoplay style="max-height: 90vh; max-width: 100%;"></video>
+</div>
+</div>
+</div>
+</div>
+<style>.cursor-pointer { cursor: pointer; } .ratio-3x4 { --bs-aspect-ratio: 133.33%; }</style>
 <script>
-    function updateGallery(url, type, element) {
-        const currentImage = document.getElementById('current-image');
-        const currentVideo = document.getElementById('current-video');
-        const thumbs = document.querySelectorAll('.thumb');
-        
-        // Update active thumb
-        thumbs.forEach(t => t.classList.remove('active'));
-        element.classList.add('active');
-
-        if (type === 'image') {
-            currentVideo.classList.add('d-none');
-            currentVideo.pause();
-            currentVideo.src = "";
-            
-            currentImage.src = url;
-            currentImage.classList.remove('d-none');
-        } else if (type === 'video') {
-            currentImage.classList.add('d-none');
-            
-            currentVideo.src = url;
-            currentVideo.classList.remove('d-none');
-            currentVideo.play();
-        }
+function openLightbox(url, type) {
+    var imgEl = document.getElementById('lightboxImage');
+    var vidEl = document.getElementById('lightboxVideo');
+    if (type === 'image') {
+        vidEl.classList.add('d-none'); vidEl.pause(); vidEl.removeAttribute('src');
+        imgEl.src = url; imgEl.classList.remove('d-none');
+    } else {
+        imgEl.classList.add('d-none'); imgEl.removeAttribute('src');
+        vidEl.src = url; vidEl.classList.remove('d-none');
     }
+    var modal = new bootstrap.Modal(document.getElementById('lightboxModal'));
+    modal.show();
+}
+document.getElementById('lightboxModal').addEventListener('hidden.bs.modal', function () {
+    var vidEl = document.getElementById('lightboxVideo');
+    vidEl.pause(); vidEl.removeAttribute('src'); vidEl.classList.add('d-none');
+});
 </script>
 {% endblock %}

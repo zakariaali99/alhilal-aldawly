@@ -28,11 +28,11 @@ msgstr ""
 
 #: core/admin.py:5
 msgid "لوحة تحكم الهلال الدولي"
-msgstr "Alhilal International Dashboard"
+msgstr "Alhilal aldawly Dashboard"
 
 #: core/admin.py:6 dashboard/templates/dashboard/base.html:8
 msgid "الهلال الدولي"
-msgstr "Alhilal International"
+msgstr "Alhilal aldawly"
 
 #: core/admin.py:7
 msgid "إدارة الموقع"

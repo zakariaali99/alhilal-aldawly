@@ -24,9 +24,17 @@ import os
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-@=l6)nmkmbb3z@&@3-a73biyq=xd7m&+1qb2c@pup&^j($2@=l')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['alhilal-aldawly.ly', 'www.alhilal-aldawly.ly', 'localhost', '127.0.0.1']
+# Security settings for production
+SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'False').lower() == 'true'
+SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
+CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'alhilal-aldawly.ly,www.alhilal-aldawly.ly,localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -88,11 +96,12 @@ WSGI_APPLICATION = "alhilal_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import dj_database_url
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600,
+    )
 }
 
 
@@ -167,7 +176,6 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-X_FRAME_OPTIONS = "SAMEORIGIN"
 
 LOGIN_URL = "/ar/accounts/login/"
 LOGIN_REDIRECT_URL = "/ar/dashboard/"
@@ -175,3 +183,14 @@ LOGOUT_REDIRECT_URL = "/ar/accounts/login/"
 
 # Silenced system checks
 SILENCED_SYSTEM_CHECKS = ["ckeditor.W001"]
+
+# CSRF settings for production
+CSRF_TRUSTED_ORIGINS = [
+    'https://alhilal-aldawly.ly',
+    'https://www.alhilal-aldawly.ly',
+    'https://*.ondigitalocean.app',
+    'https://*.herokuapp.com',
+    'https://*.render.com',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+]

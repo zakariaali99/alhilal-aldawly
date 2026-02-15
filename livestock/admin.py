@@ -5,10 +5,12 @@ from .models import Category, CategoryMedia, LivestockItem, MediaGalleryItem
 class CategoryMediaInline(admin.TabularInline):
     model = CategoryMedia
     extra = 1
+    fields = ('media_type', 'file', 'mute_video', 'caption_ar', 'caption_en', 'order')
 
 class MediaGalleryInline(admin.TabularInline):
     model = MediaGalleryItem
     extra = 1
+    fields = ('media_type', 'file', 'mute_video', 'caption_ar', 'caption_en', 'order')
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

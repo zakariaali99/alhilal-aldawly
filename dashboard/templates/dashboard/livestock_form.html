@@ -25,36 +25,46 @@
             <div class="form-group">
                 <label>{{ form.category.label }}</label>
                 {{ form.category }}
+                {% if form.category.errors %}<div class="text-danger small">{{ form.category.errors }}</div>{% endif %}
             </div>
 
             <div class="form-group">
                 <label>{{ form.slug.label }}</label>
                 {{ form.slug }}
+                {% if form.slug.errors %}<div class="text-danger small">{{ form.slug.errors }}</div>{% endif %}
             </div>
 
             <div class="form-group">
                 <label>{{ form.title_ar.label }}</label>
                 {{ form.title_ar }}
+                {% if form.title_ar.errors %}<div class="text-danger small">{{ form.title_ar.errors }}</div>{% endif %}
             </div>
 
             <div class="form-group">
                 <label>{{ form.title_en.label }}</label>
                 {{ form.title_en }}
+                {% if form.title_en.errors %}<div class="text-danger small">{{ form.title_en.errors }}</div>{% endif %}
             </div>
 
             <div class="form-group full-width">
                 <label>{{ form.description_ar.label }}</label>
                 {{ form.description_ar }}
+                {% if form.description_ar.errors %}<div class="text-danger small">{{ form.description_ar.errors }}</div>
+                {% endif %}
             </div>
 
             <div class="form-group full-width">
                 <label>{{ form.description_en.label }}</label>
                 {{ form.description_en }}
+                {% if form.description_en.errors %}<div class="text-danger small">{{ form.description_en.errors }}</div>
+                {% endif %}
             </div>
 
             <div class="form-group">
                 <label>{{ form.featured_image.label }}</label>
                 {{ form.featured_image }}
+                {% if form.featured_image.errors %}<div class="text-danger small">{{ form.featured_image.errors }}</div>
+                {% endif %}
                 {% if object and object.featured_image %}
                 <img src="{{ object.featured_image.url }}" style="height: 100px; margin-top: 10px; border-radius: 4px;">
                 {% endif %}
@@ -65,11 +75,12 @@
                     {{ form.is_featured }}
                     <span>{{ form.is_featured.label }}</span>
                 </label>
+                {% if form.is_featured.errors %}<div class="text-danger small">{{ form.is_featured.errors }}</div>{%         endif %}
             </div>
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="btn primary">
+            <button type="submit" class="btn btn-primary">
                 <i class="fas fa-save"></i> {% trans "حفظ" %}
             </button>
             <a href="{% url 'dashboard:livestock_list' %}" class="btn btn-outline">{% trans "إلغاء" %}</a>
